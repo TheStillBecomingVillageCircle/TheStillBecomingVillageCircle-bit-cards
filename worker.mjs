@@ -6,7 +6,7 @@ import script1 from './connection-names.js';
 import script2 from './memory-journal.js';
 import script3 from './memory-sharing.js';
 import script4 from './notifications.js';
-import artwork from './assets/connection-spark.jpeg';
+import artwork from './assets/connection-platinum.jpeg';
 
 // Serve one atomic release from the same source files committed to GitHub.
 const files = new Map([
@@ -14,7 +14,7 @@ const files = new Map([
   ['/index.html', [html, 'text/html; charset=utf-8']],
   ['/styles.css', [css, 'text/css; charset=utf-8']],
   ['/connection-ceremony.js', [ceremony, 'text/javascript; charset=utf-8']],
-  ['/assets/connection-spark.jpeg', [artwork, 'image/jpeg']],
+  ['/assets/connection-platinum.jpeg', [artwork, 'image/jpeg']],
   ['/auth-options.js', [script0, 'text/javascript; charset=utf-8']],
   ['/connection-names.js', [script1, 'text/javascript; charset=utf-8']],
   ['/memory-journal.js', [script2, 'text/javascript; charset=utf-8']],
@@ -34,7 +34,7 @@ export default {
         'Content-Type': file[1],
         'Cache-Control': 'no-cache',
         'X-Content-Type-Options': 'nosniff',
-        'X-BIT-Release': 'aquamarine-20261103',
+        'X-BIT-Release': 'aquamarine-platinum-20261103',
       },
     });
   },

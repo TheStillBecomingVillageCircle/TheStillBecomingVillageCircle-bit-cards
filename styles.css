@@ -269,8 +269,8 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 /* Aquamarine background with dark, readable text and warm ivory panels. */
 :root{--bit-ink:#073c3a;--bit-teal:#006a65;--bit-deep:#064b48;--bit-aqua:#11c6c0;--bit-ivory:#f9f4e9;--bit-pearl:#fffaf2;--bit-champagne:#dcb878;--bit-metal:#e6c58b;--bit-glow:#a7fff4}
-html{background:#9be7d0}
-body{color:var(--bit-ink);background:radial-gradient(ellipse at 50% 8%,#dcfff2 0%,#a9f1db 42%,#74d6bd 100%);background-attachment:fixed}
+html{background:#88e2c6}
+body{color:var(--bit-ink);background:radial-gradient(ellipse at 50% 8%,#c0f7e6 0%,#88e2c6 42%,#55c3a4 100%);background-attachment:fixed}
 .site-header{color:#073c3a;text-shadow:none}
 .site-header h1{color:#073c3a;text-shadow:none}
 .site-header>div>div{color:#164f47}
@@ -329,9 +329,9 @@ input,textarea,select{background:#fffefa;border:1px solid #d8c39c;color:#164a45}
 @keyframes bit-photo-join-right{0%,12%{transform:translateX(155px) rotate(4deg)}80%{transform:translateX(-31px)}90%{transform:translateX(-24px)}100%{transform:translateX(-28px)}}
 @keyframes bit-spark-arrival{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 .bit-ceremony-image-error .bit-ceremony-artwork,.bit-ceremony-image-error .bit-ceremony-motion{display:none}
-.bit-ceremony-image-error .bit-ceremony-card{padding:24px;background:#fff6e7;border:2px solid #c69b63;border-radius:24px;aspect-ratio:auto;box-sizing:border-box;text-align:center}
+.bit-ceremony-image-error .bit-ceremony-card{padding:24px;background:#eff9f6;border:2px solid #becbd0;border-radius:24px;aspect-ratio:auto;box-sizing:border-box;text-align:center}
 .bit-ceremony-image-error .bit-ceremony-copy{position:static;width:auto;height:auto;clip-path:none;white-space:normal;overflow:visible;margin:0;color:#063e3b}
-.bit-ceremony-image-error .bit-ceremony-card button.bit-ceremony-continue{all:revert!important;display:block!important;margin:20px auto 0!important;padding:14px 24px!important;border-radius:999px!important;background:#005e57!important;color:#fff8eb!important;cursor:pointer!important;border:2px solid #c69b63!important}
+.bit-ceremony-image-error .bit-ceremony-card button.bit-ceremony-continue{all:revert!important;display:block!important;margin:20px auto 0!important;padding:14px 24px!important;border-radius:999px!important;background:#005e57!important;color:#fff8eb!important;cursor:pointer!important;border:2px solid #becbd0!important}
 .bit-ceremony-image-error .bit-ceremony-continue span{position:static;width:auto;height:auto;clip-path:none;white-space:normal;overflow:visible}
 @media(prefers-reduced-motion:reduce){.bit-ceremony-card,.bit-photo-paddle{animation:none}.bit-photo-paddle-left{transform:translateX(28px)}.bit-photo-paddle-right{transform:translateX(-28px)}}
 

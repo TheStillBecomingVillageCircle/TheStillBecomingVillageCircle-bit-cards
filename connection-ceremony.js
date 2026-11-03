@@ -1,10 +1,10 @@
 (() => {
   'use strict';
   const storageKey = 'bit-connection-celebrated';
-  const artwork = new URL('./assets/connection-spark.jpeg', document.currentScript.src).href;
+  const artwork = new URL('./assets/connection-platinum.jpeg', document.currentScript.src).href;
   const motionMarkup = `<svg class="bit-ceremony-motion" viewBox="0 0 1199 1312" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="bit-stage-surface" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#82938b"/><stop offset=".55" stop-color="#bbc3b4"/><stop offset="1" stop-color="#e9e5d7"/></linearGradient>
+    <linearGradient id="bit-stage-surface" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a0c8be"/><stop offset=".55" stop-color="#c9e4dc"/><stop offset="1" stop-color="#e9f4f1"/></linearGradient>
     <linearGradient id="bit-scene-feather" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="white"/><stop offset=".87" stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient>
     <mask id="bit-scene-blend" maskUnits="userSpaceOnUse" x="0" y="0" width="1199" height="600"><rect width="1199" height="600" fill="url(#bit-scene-feather)"/></mask>
     <clipPath id="bit-motion-interior"><path d="M137 34H1061Q1154 34 1154 128V605H44V128Q44 34 137 34Z"/></clipPath>
@@ -83,17 +83,17 @@
       glow.addColorStop(1,'rgba(140,255,230,0)');
       ctx.fillStyle=glow;ctx.fillRect(470,185,260,260);
       stroke(bolt([[561,304],[600,315],[640,303]],13),'#e9fff0',3.7,strength);
-      if(chargeAge>90||reduced){heartSide(left,'#4dffe1',strength);heartSide(right,'#ffad43',strength);}
+      if(chargeAge>90||reduced){heartSide(left,'#4dffe1',strength);heartSide(right,'#e3eff2',strength);}
       for(let i=0;i<9;i++){
         const angle=i/9*Math.PI*2+jitter(.2),length=42+Math.random()*(55+burst*60);
         const tip=[600+Math.cos(angle)*length,315+Math.sin(angle)*length];
-        stroke(bolt([[600,315],tip],12),tip[0]<600?'#55ffe0':'#ffc56e',.9,strength*.7);
+        stroke(bolt([[600,315],tip],12),tip[0]<600?'#55ffe0':'#f2f8fa',.9,strength*.7);
       }
       // Tiny moving embers make the contact feel active without full-screen flashes.
       for(let i=0;i<14;i++){
         const angle=Math.random()*Math.PI*2,radius=30+Math.random()*140;
         const x=600+Math.cos(angle)*radius,y=315+Math.sin(angle)*radius;
-        ctx.globalAlpha=.25+Math.random()*.5;ctx.fillStyle=x<600?'#adfff0':'#ffe2a7';
+        ctx.globalAlpha=.25+Math.random()*.5;ctx.fillStyle=x<600?'#adfff0':'#f4fbff';
         ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=6;ctx.fillRect(x,y,1.2,1.2);
       }
       ctx.restore();
