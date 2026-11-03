@@ -14,11 +14,11 @@ const requestHeading=connectionsList?.previousElementSibling;
 if(requestHeading?.textContent?.trim()==='Connection Requests')requestHeading.textContent='Your Connections & Requests';
 const proposals=document.getElementById('bit-shared-name-requests');
 if(proposals){proposals.setAttribute('aria-live','polite');}
-document.querySelector('#bit-notification-toggle')?.removeAttribute('hidden');
+/* The inbox is accessed through the heart menu; the standalone header icon stays hidden. */
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
 const menuNotifications=$('bit-menu-notifications'),menuCount=$('bit-menu-notification-count');
-menuNotifications?.addEventListener('click',()=>{toggle.click();const menu=$('heart-menu');if(menu)menu.hidden=true;$('heart-menu-toggle')?.setAttribute('aria-expanded','false');});
+menuNotifications?.addEventListener('click',()=>{panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden));const menu=$('heart-menu');if(menu)menu.hidden=true;$('heart-menu-toggle')?.setAttribute('aria-expanded','false');if(!panel.hidden)refresh();});
 let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
 const seenKey=()=> 'bit-notifications-read:'+userId;
 const read=()=>{try{return new Set(JSON.parse(localStorage.getItem(seenKey())||'[]'))}catch{return new Set()}};
