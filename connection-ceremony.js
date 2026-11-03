@@ -25,7 +25,7 @@ async function check(){
  const {data,error}=await db.from('connection_requests').select('id,status').eq('status','accepted');
  if(error||!data)return;
  const accepted=new Set(data.map(r=>String(r.id)));
- if(!ready){const seen=ids();const fresh=[...accepted].filter(id=>!seen.has(id));for(const id of accepted)known.add(id);save(known);ready=true;if(fresh.length)show();return}
+ if(!ready){for(const id of accepted)known.add(id);save(known);ready=true;return}
  const fresh=[...accepted].filter(id=>!known.has(id));
  if(fresh.length){for(const id of fresh)known.add(id);save(known);show()}
 }
@@ -35,7 +35,7 @@ window.addEventListener('bit-connection-accepted',async event=>{
  if(!id)return;
  const user=(await window.bitCardsDb?.auth.getUser())?.data?.user;
  if(!user)return;
- if(currentId!==user.id){currentId=user.id;known=ids();}
+ if(currentId!==user.id){currentId=user.id;known=ids();ready=false;}
  const celebrated=ids();
  if(celebrated.has(id))return;
  celebrated.add(id);known.add(id);save(celebrated);
