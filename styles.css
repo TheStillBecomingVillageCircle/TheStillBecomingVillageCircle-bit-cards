@@ -235,3 +235,15 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-notification-item p{margin:0 0 10px}
 .bit-notification-item button{font-size:.85rem;padding:8px 10px;margin:2px 5px 2px 0;color:#185f59;border:1px solid #9fc8b9;background:#e9f8ef;border-radius:10px}
 #bit-notification-toggle[hidden],#bit-notification-panel[hidden],#bit-notification-count[hidden]{display:none!important}
+
+/* B.I.T. notification paddles: spark only on a new arrival. */
+#bit-notification-toggle{display:grid;place-items:center;width:48px;height:48px;padding:5px;overflow:visible}
+#bit-notification-toggle .bit-paddles{display:block;overflow:visible}
+#bit-notification-toggle .bit-electric-spark{opacity:0;transform-origin:24px 24px}
+#bit-notification-toggle.bit-spark-arrival .bit-paddle-left{animation:bit-paddle-left .85s ease-out 1}
+#bit-notification-toggle.bit-spark-arrival .bit-paddle-right{animation:bit-paddle-right .85s ease-out 1}
+#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{animation:bit-electric-flash .85s ease-out 1}
+@keyframes bit-paddle-left{0%,100%{transform:translateX(0)}30%{transform:translateX(4px)}55%{transform:translateX(2px)}}
+@keyframes bit-paddle-right{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}55%{transform:translateX(-2px)}}
+@keyframes bit-electric-flash{0%,22%,65%,100%{opacity:0;transform:scale(.65)}30%,42%,54%{opacity:1;transform:scale(1.15)}}
+@media(prefers-reduced-motion:reduce){#bit-notification-toggle.bit-spark-arrival .bit-paddle,#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{animation:none!important}#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{opacity:1}}
