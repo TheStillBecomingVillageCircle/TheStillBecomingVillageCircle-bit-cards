@@ -323,3 +323,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 .bit-replay-ceremony{display:inline-flex;align-items:center;justify-content:center;margin:12px 0 16px;padding:12px 16px;border:1px solid #69bba9;border-radius:999px;background:linear-gradient(110deg,#d5f5e9,#f8e6c8);color:#175c54;font-weight:600}
 .bit-replay-ceremony[hidden]{display:none!important}
+
+#heart-menu .bit-menu-notifications{display:block;width:100%;padding:12px 16px;text-align:left;background:transparent;color:inherit;border:0;border-radius:10px;font:inherit;cursor:pointer}
+#heart-menu .bit-menu-notifications:hover,#heart-menu .bit-menu-notifications:focus-visible{background:#d9f3e9;outline-offset:2px}
