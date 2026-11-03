@@ -101,15 +101,31 @@ if(story&&title&&pages){
  $('bit-memory-form')?.addEventListener('submit',()=>setTimeout(sync,100));
  sync();
 }
-function wireDeck(deck){
- if(deck.dataset.bitSwipeReady)return;deck.dataset.bitSwipeReady='true';
- let startX=0,startY=0,down=false;
- deck.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;startX=e.touches[0].clientX;startY=e.touches[0].clientY;down=true},{passive:true});
- deck.addEventListener('touchend',e=>{if(!down)return;down=false;const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;if(Math.abs(dx)<45||Math.abs(dx)<Math.abs(dy)*1.25)return;const section=deck.parentElement;const controls=section?.querySelector('.bit-stack-controls');const buttons=controls?.querySelectorAll('button');const button=dx<0?buttons?.[1]:buttons?.[0];if(button&&!button.disabled){deck.classList.add(dx<0?'bit-swipe-next':'bit-swipe-prev');button.click();setTimeout(()=>deck.classList.remove('bit-swipe-next','bit-swipe-prev'),240)}},{passive:true});
- deck.addEventListener('click',e=>{if(e.target.closest('button,a,input,textarea,select'))return;const controls=deck.parentElement?.querySelector('.bit-stack-controls');const next=controls?.querySelectorAll('button')?.[1];if(next&&!next.disabled)next.click()});
-}
-function wire(){document.querySelectorAll('.bit-card-deck').forEach(wireDeck)}
-const observer=new MutationObserver(()=>{if(!document.hidden)wire()});
-observer.observe(document.body,{childList:true,subtree:true});
-wire();
+/* Delegated pointer gestures work for decks rendered after initial page load. */
+let gesture=null, suppressClickUntil=0;
+document.addEventListener('pointerdown',event=>{
+ const deck=event.target.closest?.('.bit-card-deck');
+ if(!deck||event.target.closest('button,a,input,textarea,select'))return;
+ gesture={deck,x:event.clientX,y:event.clientY,id:event.pointerId};
+},{passive:true});
+document.addEventListener('pointerup',event=>{
+ if(!gesture||gesture.id!==event.pointerId)return;
+ const {deck,x,y}=gesture;gesture=null;
+ const dx=event.clientX-x,dy=event.clientY-y;
+ if(Math.abs(dx)<35||Math.abs(dx)<Math.abs(dy)*1.15)return;
+ const controls=deck.closest('.bit-day-stack')?.querySelector('.bit-stack-controls');
+ const buttons=controls?.querySelectorAll('button');
+ const target=dx<0?buttons?.[1]:buttons?.[0];
+ suppressClickUntil=Date.now()+450;
+ if(target&&!target.disabled)target.click();
+},{passive:true});
+document.addEventListener('pointercancel',()=>{gesture=null},{passive:true});
+document.addEventListener('click',event=>{
+ const deck=event.target.closest?.('.bit-card-deck');
+ if(!deck||event.target.closest('button,a,input,textarea,select'))return;
+ if(Date.now()<suppressClickUntil)return;
+ const next=deck.closest('.bit-day-stack')?.querySelectorAll('.bit-stack-controls button')?.[1];
+ if(next&&!next.disabled)next.click();
+});
+
 })();
