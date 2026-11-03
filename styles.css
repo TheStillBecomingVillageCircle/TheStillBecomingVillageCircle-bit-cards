@@ -326,3 +326,7 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 #heart-menu .bit-menu-notifications{display:block;width:100%;padding:12px 16px;text-align:left;background:transparent;color:inherit;border:0;border-radius:10px;font:inherit;cursor:pointer}
 #heart-menu .bit-menu-notifications:hover,#heart-menu .bit-menu-notifications:focus-visible{background:#d9f3e9;outline-offset:2px}
+
+/* One heart menu, not two header buttons. Notification inbox remains available inside menu. */
+#bit-notification-toggle{display:none!important}
+#bit-notification-panel:not([hidden]){position:fixed!important;z-index:9999!important;top:clamp(75px,12vh,125px)!important;right:16px!important;left:auto!important;width:min(420px,calc(100vw - 32px))!important;max-height:72vh!important;overflow-y:auto!important}
