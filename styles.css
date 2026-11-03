@@ -317,3 +317,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 /* Elegant acknowledgement headings and filled decorative hearts. */
 #bit-cards h3,#bit-cards .bit-acknowledgments h3{letter-spacing:.01em}
 #bit-cards .bit-acknowledgments h3{font-family:'Caveat','Euphoria Script',cursive!important;font-size:clamp(30px,6vw,42px)!important;font-weight:500!important}
+
+.bit-filled-heart{color:#36bfa9;text-shadow:0 1px 1px #26776b55;font-family:Georgia,serif;font-size:.8em}
+#bit-gifted-activity>h3{font-family:'Caveat','Euphoria Script',cursive!important;font-size:clamp(32px,6.5vw,44px)!important;font-weight:500!important;letter-spacing:0!important}
