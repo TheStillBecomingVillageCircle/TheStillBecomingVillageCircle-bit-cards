@@ -27,7 +27,7 @@ function openPage(page){const tab=document.querySelector('[data-bit-tab="'+page+
 function render(){
 const seen=read(),unread=items.filter(i=>!seen.has(i.key)).length;
 if(initializedFor!==userId){initializedFor=userId;previousUnread=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));}else{const current=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));if([...current].some(key=>!previousUnread.has(key))){toggle.classList.remove('bit-spark-arrival');void toggle.offsetWidth;toggle.classList.add('bit-spark-arrival');}previousUnread=current;}
-badge.textContent=unread?'('+unread+')':'';toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
+badge.textContent=unread?'('+unread+')':'';const menuBadge=$('bit-heart-menu-badge');if(menuBadge){menuBadge.textContent=unread>99?'99+':String(unread);menuBadge.hidden=!unread;}const heartToggle=$('heart-menu-toggle');if(heartToggle)heartToggle.setAttribute('aria-label',unread?`Open navigation menu, ${unread} unread notifications`:'Open navigation menu');toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
 host.replaceChildren();
 if(!items.length){host.textContent='No new activity yet.';return}
 for(const item of items){const row=document.createElement('div');row.className='bit-notification-item';if(!seen.has(item.key))row.classList.add('unread');const title=document.createElement('p');title.textContent=item.message;row.append(title);
