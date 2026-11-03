@@ -191,3 +191,13 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 /* Collection panels are exclusive to their selected tabs. */
 #bit-gifted-activity[hidden],#bit-treasured-inbox[hidden],#bit-sent-archive[hidden]{display:none!important}
+
+/* Memories are a journal timeline, never playing cards. */
+#bit-memory-list,.bit-memory-sharing-list{position:relative}
+#bit-memory-list{margin:16px 0 26px;padding-left:22px;border-left:2px solid #8bcbbd}
+#bit-memories .bit-journal-entry{position:relative;display:flex;flex-direction:column;gap:8px;margin:0 0 24px;padding:4px 4px 18px 16px;background:transparent;border:0;border-bottom:1px solid #c7e2d9;border-radius:0;box-shadow:none;min-height:0;aspect-ratio:auto}
+#bit-memory-list>.bit-journal-entry::before{content:"";position:absolute;left:-29px;top:12px;width:12px;height:12px;border-radius:50%;background:#37aaa0;border:3px solid #f8fdf9}
+#bit-memories .bit-journal-entry h4{font-size:1.2rem;margin:0;color:#185b55}
+#bit-memories .bit-journal-entry p{margin:0;line-height:1.55;overflow-wrap:anywhere}
+#bit-memories .bit-journal-entry p:nth-of-type(1){order:-1;font-size:.84rem;letter-spacing:.04em;color:#547c73}
+#bit-memories .bit-journal-entry button{align-self:flex-start;margin-top:10px}
