@@ -320,3 +320,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 .bit-filled-heart{color:#36bfa9;text-shadow:0 1px 1px #26776b55;font-family:Georgia,serif;font-size:.8em}
 #bit-gifted-activity>h3{font-family:'Caveat','Euphoria Script',cursive!important;font-size:clamp(32px,6.5vw,44px)!important;font-weight:500!important;letter-spacing:0!important}
+
+.bit-replay-ceremony{display:inline-flex;align-items:center;justify-content:center;margin:12px 0 16px;padding:12px 16px;border:1px solid #69bba9;border-radius:999px;background:linear-gradient(110deg,#d5f5e9,#f8e6c8);color:#175c54;font-weight:600}
+.bit-replay-ceremony[hidden]{display:none!important}
