@@ -25,7 +25,7 @@ async function check(){
  const {data,error}=await db.from('connection_requests').select('id,status').eq('status','accepted');
  if(error||!data)return;
  const accepted=new Set(data.map(r=>String(r.id)));
- if(!ready){for(const id of accepted)known.add(id);save(known);ready=true;return}
+ if(!ready){const seen=ids();const fresh=[...accepted].filter(id=>!seen.has(id));for(const id of accepted)known.add(id);save(known);ready=true;if(fresh.length)show();return}
  const fresh=[...accepted].filter(id=>!known.has(id));
  if(fresh.length){for(const id of fresh)known.add(id);save(known);show()}
 }
