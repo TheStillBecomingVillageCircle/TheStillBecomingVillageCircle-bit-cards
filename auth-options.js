@@ -4,10 +4,10 @@
   const $ = id => document.getElementById(id);
   const db = window.bitCardsDb;
   if (!db) return;
-  if (!linkForm || !passwordForm || !status || !$('bit-method-link') || !$('bit-method-password')) return;
   const linkForm = $('bit-login-form');
   const passwordForm = $('bit-password-form');
   const status = $('bit-login-status');
+  if (!linkForm || !passwordForm || !status || !$('bit-method-link') || !$('bit-method-password')) return;
   const redirectTo = location.origin + location.pathname;
   let mode = 'link';
   function setMode(next) {
