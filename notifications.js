@@ -11,6 +11,10 @@ const connectionSubtitle=document.createElement('p');
 connectionSubtitle.className='bit-connection-subtitle';
 connectionSubtitle.textContent='Two hearts. One electric connection.';
 connectionHeading?.after(connectionSubtitle);
+/* Complete heart-shaped electrical flash between the two paddle halves. */
+const spark=document.querySelector('#bit-notification-toggle .bit-electric-spark');
+if(spark){spark.setAttribute('d','M24 16c-4-7-14-4-14 3 0 6 7 11 14 17 7-6 14-11 14-17 0-7-10-10-14-3Z');}
+
 
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
