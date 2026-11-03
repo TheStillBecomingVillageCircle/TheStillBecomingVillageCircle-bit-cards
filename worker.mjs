@@ -34,7 +34,7 @@ export default {
         'Content-Type': file[1],
         'Cache-Control': 'no-cache',
         'X-Content-Type-Options': 'nosniff',
-        'X-BIT-Release': 'circling-charge-20261103',
+        'X-BIT-Release': 'account-loading-20261103',
       },
     });
   },
