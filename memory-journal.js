@@ -21,6 +21,15 @@
     const own = Array.from(personal.children).filter(el => el.matches('article'));
     const others = sharedSections.flatMap(section => Array.from(section.querySelectorAll('article.bit-journal-entry')));
     entries = [...own, ...others];
+    const live = pages.querySelector('.bit-journal-live');
+    if (live && !live.hidden) {
+      own.forEach(entry => { entry.hidden = true; });
+      sharedSections.forEach(section => { section.hidden = true; });
+      personal.hidden = true;
+      count.textContent = 'Writing a new memory';
+      prev.disabled = next.disabled = true;
+      return;
+    }
     if (!entries.length) {
       index = 0;
       count.textContent = 'No journal entries yet';
@@ -58,6 +67,11 @@
   next.addEventListener('click', () => { if (index < entries.length - 1) { index++; refresh(); book.scrollIntoView({behavior:'smooth',block:'start'}); } });
   const observer = new MutationObserver(schedule);
   observer.observe(personal, {childList:true});
+  const storyInput=document.getElementById('bit-memory-story');
+  const titleInput=document.getElementById('bit-memory-title');
+  storyInput?.addEventListener('input',schedule);
+  titleInput?.addEventListener('input',schedule);
+  document.getElementById('bit-memory-form')?.addEventListener('reset',()=>setTimeout(schedule,0));
   sharedSections.forEach(section => observer.observe(section, {childList:true}));
   refresh();
 })();
