@@ -1,4 +1,5 @@
 import html from './index.html';
+import supabaseSdk from './vendor/supabase-2.118.0.js';
 import css from './styles.css';
 import ceremony from './connection-ceremony.js';
 import script0 from './auth-options.js';
@@ -10,6 +11,7 @@ import artwork from './assets/connection-platinum.jpeg';
 
 // Serve one atomic release from the same source files committed to GitHub.
 const files = new Map([
+  ['/vendor/supabase-2.118.0.js', [supabaseSdk, 'text/javascript; charset=utf-8']],
   ['/', [html, 'text/html; charset=utf-8']],
   ['/index.html', [html, 'text/html; charset=utf-8']],
   ['/styles.css', [css, 'text/css; charset=utf-8']],
@@ -34,7 +36,7 @@ export default {
         'Content-Type': file[1],
         'Cache-Control': 'no-cache',
         'X-Content-Type-Options': 'nosniff',
-        'X-BIT-Release': 'account-loading-20261103',
+        'X-BIT-Release': 'session-restoration-20261103',
       },
     });
   },
