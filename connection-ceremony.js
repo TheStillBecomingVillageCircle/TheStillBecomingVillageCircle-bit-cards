@@ -4,23 +4,7 @@ const storageKey = 'bit-connection-celebrated';
 let currentId = null;
 let known = new Set();
 let ready = false;
-const styles = `
-.bit-ceremony-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(9,38,36,.82);padding:18px}
-.bit-ceremony-overlay[hidden]{display:none!important}
-.bit-ceremony-card{width:min(94vw,430px);border-radius:28px;padding:28px 20px;text-align:center;background:linear-gradient(145deg,#f9fff8,#d7f1e9);color:#195c54;box-shadow:0 20px 65px #061e1c88}
-.bit-ceremony-card h2{font-size:1.65rem;margin:10px 0}
-.bit-ceremony-card p{margin:8px 0 18px}
-.bit-ceremony-art{width:min(75vw,290px);height:auto;overflow:visible}
-.bit-ceremony-left{animation:bit-ceremony-left 2.4s ease-in-out both;transform-origin:50% 50%}
-.bit-ceremony-right{animation:bit-ceremony-right 2.4s ease-in-out both;transform-origin:50% 50%}
-.bit-ceremony-heart{animation:bit-ceremony-heart 2.4s ease-in-out both;transform-origin:50% 50%}
-.bit-ceremony-card button{padding:12px 24px;border:0;border-radius:999px;background:#216f65;color:white;font-weight:700}
-@keyframes bit-ceremony-left{0%,15%{transform:translateX(-22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(-5px)}}
-@keyframes bit-ceremony-right{0%,15%{transform:translateX(22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(5px)}}
-@keyframes bit-ceremony-heart{0%,35%{opacity:0;transform:scale(.4)}45%,75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-heart{animation:none!important}}
-`;
-const style=document.createElement('style');style.textContent=styles;document.head.append(style);
+
 function show(){
  if(document.querySelector('.bit-ceremony-overlay'))return;
  const overlay=document.createElement('div');overlay.className='bit-ceremony-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Connection celebration');
