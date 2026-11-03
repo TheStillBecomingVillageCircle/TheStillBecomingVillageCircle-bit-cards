@@ -29,9 +29,12 @@ async function check(){
  const fresh=[...accepted].filter(id=>!known.has(id));
  if(fresh.length){for(const id of fresh)known.add(id);save(known);show()}
 }
-window.addEventListener('bit-connection-accepted',event=>{
+window.addEventListener('bit-connection-accepted',async event=>{
  const id=String(event.detail?.connectionId||'');
- if(!id||!currentId)return;
+ if(!id)return;
+ const user=(await window.bitCardsDb?.auth.getUser())?.data?.user;
+ if(!user)return;
+ if(currentId!==user.id){currentId=user.id;known=ids();}
  const celebrated=ids();
  if(celebrated.has(id))return;
  celebrated.add(id);known.add(id);save(celebrated);
