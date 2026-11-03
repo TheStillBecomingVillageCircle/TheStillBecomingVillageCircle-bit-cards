@@ -105,8 +105,10 @@ document.addEventListener('click',event=>{
  const deck=event.target.closest?.('.bit-card-deck');
  if(!deck||event.target.closest('button,a,input,textarea,select'))return;
  if(Date.now()<suppressClickUntil)return;
- const next=deck.closest('.bit-day-stack')?.querySelectorAll('.bit-stack-controls button')?.[1];
- if(next&&!next.disabled)next.click();
+ const buttons=deck.closest('.bit-day-stack')?.querySelectorAll('.bit-stack-controls button');
+ const next=buttons?.[1],previous=buttons?.[0];
+ const target=next&&!next.disabled?next:previous;
+ if(target&&!target.disabled)target.click();
 });
 
 })();
