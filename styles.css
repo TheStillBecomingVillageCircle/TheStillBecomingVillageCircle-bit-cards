@@ -105,7 +105,7 @@ main>.cols[hidden],#bit-card-collection[hidden],#bit-create-from-cards[hidden]{d
 #bit-card-tabs button{flex:1;background:#fffaf3;border:1px solid #cdb59a;border-radius:14px;color:#594238;padding:11px 4px}
 #bit-card-tabs button[aria-selected="true"]{background:#e1f2e9;color:#175b55;border-color:#6ea99d;font-weight:600}
 #bit-card-collection{padding:22px;border-radius:20px;background:#fffaf3;margin-bottom:18px}
-#bit-invite-controls[hidden],#bit-add-connection[hidden]{display:none!important}
+.bit-connection-invite-section[hidden]{display:none!important}
 #bit-join-form button[type="submit"]{display:inline-flex!important;align-items:center;justify-content:center;min-height:44px!important;padding:10px 16px!important;color:#145d56!important;-webkit-text-fill-color:#145d56!important;background:#fff!important;opacity:1!important;font-size:16px!important;font-weight:650!important;white-space:normal!important}
 .bit-edit-name-button{background:linear-gradient(120deg,#c8f1df,#8bdad1,#f7df9c)!important;color:#164e4c!important;-webkit-text-fill-color:#164e4c!important;border:1px solid #65afa5!important;font-weight:700}
 .bit-blended-heart{font-family:Arial,sans-serif!important;font-variant-emoji:text;display:inline-block;font-size:1.25em;line-height:1;background:linear-gradient(135deg,#00a8ad 5%,#52c6a5 48%,#d5a54d 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#168d91}
