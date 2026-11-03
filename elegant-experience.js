@@ -38,21 +38,34 @@ if(toggle){
  svg.innerHTML='<defs><linearGradient id="bitFineLeft" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b9eee0"/><stop offset="1" stop-color="#48b6a8"/></linearGradient><linearGradient id="bitFineRight" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8e9d2"/><stop offset="1" stop-color="#c99f75"/></linearGradient></defs><g class="bit-paddle bit-paddle-left"><path d="M24 17C17 5 5 11 5 23c0 9 11 16 19 21Z" fill="url(#bitFineLeft)" stroke="#32796f" stroke-width="1.3"/><path d="M12 13 9 7" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><g class="bit-paddle bit-paddle-right"><path d="M24 17C31 5 43 11 43 23c0 9-11 16-19 21Z" fill="url(#bitFineRight)" stroke="#32796f" stroke-width="1.3"/><path d="m36 13 3-6" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><path class="bit-electric-spark" d="M24 19c-5-8-15-3-15 5 0 7 8 13 15 18 7-5 15-11 15-18 0-8-10-13-15-5Z" fill="#e8c36e" stroke="#fff9d7" stroke-width="1.5"/>';
  }
 }
-/* Live ink appears on the actual journal page while the memory is written. */
-const story=$('bit-memory-story'),title=$('bit-memory-title'),journalPages=$('bit-journal-pages'),journalBook=$('bit-journal-book');
-if(story&&title&&journalPages&&journalBook){
- const live=document.createElement('div');live.className='bit-journal-live';live.hidden=true;
- const liveTitle=document.createElement('h4'),liveStory=document.createElement('p');live.append(liveTitle,liveStory);
- journalPages.append(live);
- const liveStyle=document.createElement('style');liveStyle.textContent=`
- #bit-memories .bit-journal-live{padding:12px 14px;min-height:230px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,#b4d8ce88 32px);background-position:0 4px}
+/* Mirror the white text box into the lined journal, without changing saved entries. */
+const story=$('bit-memory-story'),title=$('bit-memory-title'),pages=$('bit-journal-pages');
+if(story&&title&&pages){
+ const preview=document.createElement('article');
+ preview.className='bit-journal-live';
+ preview.hidden=true;
+ preview.setAttribute('aria-label','Live memory writing preview');
+ const heading=document.createElement('h4');
+ const ink=document.createElement('p');
+ preview.append(heading,ink);
+ pages.prepend(preview);
+ const css=document.createElement('style');
+ css.textContent=`
+ #bit-memories .bit-journal-live{display:block;padding:0 14px 12px;min-height:180px;background:transparent}
  #bit-memories .bit-journal-live[hidden]{display:none!important}
- #bit-memories .bit-journal-live h4,#bit-memories .bit-journal-live p{margin:0;font-family:'Euphoria Script','Caveat',cursive;font-size:clamp(28px,6vw,37px);font-weight:400;line-height:32px;white-space:pre-wrap;overflow-wrap:anywhere;color:#175d55}
- #bit-memories .bit-journal-live h4{font-size:clamp(32px,7vw,42px)}
- `;document.head.append(liveStyle);
- const update=()=>{const writing=Boolean(story.value||title.value);live.hidden=!writing;liveTitle.textContent=title.value;liveStory.textContent=story.value;if(writing){journalPages.querySelectorAll(':scope > :not(.bit-journal-live)').forEach(el=>{if(!el.dataset.bitLiveWasHidden)el.dataset.bitLiveWasHidden=el.hidden?'yes':'no';el.hidden=true})}else{journalPages.querySelectorAll(':scope > :not(.bit-journal-live)').forEach(el=>{if(el.dataset.bitLiveWasHidden){el.hidden=el.dataset.bitLiveWasHidden==='yes';delete el.dataset.bitLiveWasHidden}})}};
- story.addEventListener('input',update);title.addEventListener('input',update);
- $('bit-memory-form')?.addEventListener('submit',()=>setTimeout(update,150));
+ #bit-memories .bit-journal-live h4,#bit-memories .bit-journal-live p{font-family:'Euphoria Script','Caveat',cursive!important;color:#175d55;font-weight:400;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+ #bit-memories .bit-journal-live h4{font-size:clamp(32px,7vw,42px);line-height:32px}
+ #bit-memories .bit-journal-live p{font-size:clamp(27px,5.7vw,35px);line-height:32px}
+ #bit-memories .bit-journal-pages:has(.bit-journal-live:not([hidden])) #bit-memory-list,
+ #bit-memories .bit-journal-pages:has(.bit-journal-live:not([hidden])) .bit-journal-shared-section{display:none!important}
+ `;
+ document.head.append(css);
+ function sync(){const active=Boolean(title.value||story.value);preview.hidden=!active;heading.textContent=title.value;ink.textContent=story.value;}
+ story.addEventListener('input',sync);
+ title.addEventListener('input',sync);
+ $('bit-memory-form')?.addEventListener('reset',()=>requestAnimationFrame(sync));
+ $('bit-memory-form')?.addEventListener('submit',()=>setTimeout(sync,100));
+ sync();
 }
 function wireDeck(deck){
  if(deck.dataset.bitSwipeReady)return;deck.dataset.bitSwipeReady='true';
