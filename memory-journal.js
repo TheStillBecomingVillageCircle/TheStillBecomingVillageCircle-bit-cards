@@ -11,7 +11,7 @@
   let index = 0;
   let entries = [];
   let scheduled = false;
-  const sharedSections = Array.from(personal.parentElement.parentElement.children).filter(el => el !== book && el.tagName === 'SECTION');
+  const sharedSections = Array.from(pages.children).filter(el => el !== personal && el.tagName === 'SECTION');
   sharedSections.forEach(section => {
     section.classList.add('bit-journal-shared-section');
     pages.append(section);
