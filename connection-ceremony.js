@@ -29,6 +29,7 @@ async function check(){
  const fresh=[...accepted].filter(id=>!known.has(id));
  if(fresh.length){for(const id of fresh)known.add(id);save(known);show()}
 }
+window.bitReplayConnectionCeremony=show;
 window.addEventListener('bit-connection-accepted',async event=>{
  const id=String(event.detail?.connectionId||'');
  if(!id)return;
