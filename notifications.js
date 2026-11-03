@@ -17,7 +17,6 @@ if(proposals){proposals.setAttribute('aria-live','polite');}
 /* The inbox is accessed through the heart menu; the standalone header icon stays hidden. */
 const $=id=>document.getElementById(id),toggle=$('bit-menu-notifications'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-menu-notification-count');
 if(!toggle||!panel||!host)return;
-const menuNotifications=$('bit-menu-notifications'),menuCount=$('bit-menu-notification-count');
 
 let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
 const seenKey=()=> 'bit-notifications-read:'+userId;
@@ -26,7 +25,7 @@ function mark(key){const s=read();s.add(key);try{localStorage.setItem(seenKey(),
 function openPage(page){const tab=document.querySelector('[data-bit-tab="'+page+'"]');tab?.click();panel.hidden=true;toggle.setAttribute('aria-expanded','false')}
 function render(){
 const seen=read(),unread=items.filter(i=>!seen.has(i.key)).length;
-if(initializedFor!==userId){initializedFor=userId;previousUnread=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));}else{const current=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));if([...current].some(key=>!previousUnread.has(key))){toggle.classList.remove('bit-spark-arrival');void toggle.offsetWidth;toggle.classList.add('bit-spark-arrival');}previousUnread=current;}
+if(initializedFor!==userId){initializedFor=userId;previousUnread=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));}else{const current=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));if([...current].some(key=>!previousUnread.has(key))){const menuHeart=$('heart-menu-toggle');menuHeart?.classList.remove('bit-spark-arrival');if(menuHeart){void menuHeart.offsetWidth;menuHeart.classList.add('bit-spark-arrival');}}previousUnread=current;}
 badge.textContent=unread?'('+unread+')':'';const menuBadge=$('bit-heart-menu-badge');if(menuBadge){menuBadge.textContent=unread>99?'99+':String(unread);menuBadge.hidden=!unread;}const heartToggle=$('heart-menu-toggle');if(heartToggle)heartToggle.setAttribute('aria-label',unread?`Open navigation menu, ${unread} unread notifications`:'Open navigation menu');toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
 host.replaceChildren();
 if(!items.length){host.textContent='No new activity yet.';return}
