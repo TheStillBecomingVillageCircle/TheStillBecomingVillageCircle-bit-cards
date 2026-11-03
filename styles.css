@@ -285,84 +285,47 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #e8fffa;box-shadow:0 2px 5px #164e4655;pointer-events:none}
 .bit-heart-menu-badge[hidden]{display:none!important}
 
-/* B.I.T. Cards — unified luminous pearl / mint / aquamarine / platinum finish. */
-:root{
- --bit-mint:#baf8e3;--bit-aquamarine:#31bdb1;--bit-platinum:#c2d3d9;
- --bit-pearl:#fafffd;--bit-deep:#105b58;--bit-glow:rgba(170,255,235,.66);
- --bit-metal:linear-gradient(135deg,#fff 0%,#a5bcc4 19%,#faffff 37%,#829da9 54%,#fff 75%,#a1b7c0 100%);
- --bit-surface:radial-gradient(ellipse at 22% 0%,#fff 0%,#fbfffe 28%,#effff9 62%,#d8f5ed 100%);
+/* Reference-matched luxury palette — one cohesive site-wide layer. */
+:root{--bit-ink:#073c3a;--bit-teal:#006a65;--bit-deep:#064b48;--bit-aqua:#11c6c0;--bit-ivory:#f9f4e9;--bit-pearl:#fffaf2;--bit-champagne:#dcb878;--bit-metal:#e6c58b;--bit-glow:#a7fff4}
+html{background:#073d3b}
+body{color:var(--bit-ink);background:radial-gradient(ellipse at 50% 8%,#217c77 0%,#0b5955 42%,#063d3b 100%);background-attachment:fixed}
+.site-header{color:#f8f1e6;text-shadow:0 1px 10px #a3fff78a}
+.site-header h1{color:#fdf6e9;text-shadow:0 2px 8px #001f1e66}
+.site-header>div>div{color:#f5f0e5}
+.heart-menu-welcome{color:#fff8ed}
+.box,.account-panel,#bit-premium,.bit-how,#bit-card-collection,.bit-card-activity,.bit-security-panel,.bit-sent-deck,#bit-memories #bit-memory-form,.heart-menu-panel,#bit-notification-panel{
+ background:radial-gradient(ellipse at 50% 0%,#ffffff 0%,#fffaf1 28%,#f8f0e4 70%,#e9e1d3 100%);
+ color:#083f3c;border:1.5px solid #d5b67e;border-radius:26px;
+ box-shadow:0 17px 37px #002f2b55,0 0 0 2px #fff8e7,inset 0 0 0 1px #ffffffc9,inset 0 3px 17px #fff;
 }
-html{background:#7ff0d4}
-body{
- background:radial-gradient(ellipse 65% 28% at 50% 7%,rgba(255,255,255,.66),transparent 78%),
- radial-gradient(ellipse 55% 42% at 8% 40%,rgba(207,255,236,.46),transparent 80%),
- radial-gradient(ellipse 55% 42% at 93% 72%,rgba(195,255,244,.42),transparent 80%),
- linear-gradient(145deg,#5bd8bd 0%,#79efd1 26%,#98f7dd 48%,#68e4c8 76%,#42c9b4 100%);
- background-attachment:fixed;
- color:#124d4b;
-}
-.site-header{filter:drop-shadow(0 3px 13px rgba(215,255,247,.44))}
-.site-header h1{text-shadow:0 1px 0 #ffffffbb,0 0 23px rgba(241,255,252,.55)}
-.heart-menu-toggle svg{filter:drop-shadow(0 2px 1px #ffffffa0) drop-shadow(0 4px 5px #0b67654d)}
-.box,.account-panel,#bit-premium,.bit-how,
-#bit-card-collection,.bit-card-activity,.bit-security-panel,.bit-sent-deck,
-#bit-memories #bit-memory-form,.heart-menu-panel,#bit-notification-panel{
- background:var(--bit-surface);
- border:1px solid #b4d2d8;
- box-shadow:0 13px 35px rgba(7,66,64,.18),0 0 25px rgba(211,255,248,.34),
- inset 0 1px 0 #fff,inset 0 0 22px rgba(255,255,255,.75);
-}
-.box,.account-panel,#bit-premium,.bit-how{border-radius:25px}
-.box,.account-panel,#bit-premium,.bit-how,#bit-card-collection,.bit-card-activity,.bit-security-panel,.bit-sent-deck{position:relative}
-.box::before,.account-panel::before,#bit-premium::before,.bit-how::before{
- content:"";position:absolute;inset:1px;border-radius:inherit;pointer-events:none;
- border:1px solid rgba(255,255,255,.8);
- box-shadow:inset 0 2px 12px rgba(255,255,255,.45);
-}
-.box h2,.account-panel h2,.bit-how h2{color:#0d514f;text-shadow:0 1px 0 #fff,0 0 13px rgba(181,255,237,.36)}
+.box h2,.account-panel h2,.bit-how h2,.box h3,.account-panel h3{color:#063e3b;text-shadow:0 1px 0 #fff}
+.box p,.account-panel p,.bit-how p{color:#315b55}
 button:not(.heart-menu-toggle):not(.day):not(.bit-bottom-nav button){
- border-color:#a5c9cc;
- background:linear-gradient(155deg,#fff 0%,#f8fffe 25%,#d6f7ef 58%,#b6e7e4 100%);
- color:#115b58;
- box-shadow:inset 0 2px 1px rgba(255,255,255,.96),inset 0 -1px 2px rgba(15,102,97,.12),0 4px 12px rgba(11,85,78,.15),0 0 9px rgba(233,255,250,.6);
+ color:#07514c;background:linear-gradient(160deg,#fffefa 0%,#f9f1e5 35%,#eadbc3 100%);
+ border:1px solid #d5b67e;box-shadow:inset 0 2px 1px #fff,0 5px 13px #073c3a30,0 0 0 1px #fff9e6;
 }
-button.primary,button.active,.bit-ceremony-card button,
-#bit-memories .bit-journal-navigation button:not(:disabled):active{
- background:linear-gradient(160deg,#075754 0%,#0e8880 35%,#2cc4b3 52%,#075956 100%)!important;
- color:#fff!important;-webkit-text-fill-color:#fff!important;
- border:1px solid #c1e2e5!important;
- box-shadow:inset 0 2px 1px #ffffff75,inset 0 -3px 7px #003d3a55,0 8px 19px #075a5366,0 0 14px #b5fff099!important;
+button.primary,button.active,.bit-ceremony-card button{
+ color:#fff9eb!important;-webkit-text-fill-color:#fff9eb!important;
+ background:linear-gradient(170deg,#027f77 0%,#004d49 48%,#012f2e 100%)!important;
+ border:2px solid #e0c38b!important;
+ box-shadow:inset 0 2px 3px #85fff37d,inset 0 -4px 6px #001f1eaa,0 9px 19px #003e3a66,0 0 0 2px #fff9e6!important;
 }
-.bit-cta{background:linear-gradient(145deg,#fff,#f0fffa 42%,#bdf6e9 100%)!important;border:1.5px solid #b1d2d9!important;box-shadow:inset 0 2px 1px #fff,0 8px 22px #0d676533,0 0 15px #e4fffacc!important}
-.bit-bottom-nav{
- background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(242,255,251,.97) 50%,rgba(214,246,241,.98));
- border:1px solid #b9d1d8;
- box-shadow:inset 0 2px 2px #fff,0 8px 26px #084e4d44,0 0 20px #c4fff499;
-}
-.bit-bottom-nav button{background:transparent!important;color:#1c6965!important;box-shadow:none!important;border:0!important}
-.bit-bottom-nav button[aria-current="page"]{background:linear-gradient(155deg,#faffff,#c9f5e9)!important;box-shadow:inset 0 1px 0 #fff,0 0 12px #83e6d488!important}
-.bit-bottom-nav button svg{filter:drop-shadow(0 1px 1px #ffffffb0)}
-#bit-card-tabs button,#bit-auth-method button{border-color:#b4d1d5;color:#125956}
-#bit-card-tabs button[aria-selected="true"],.bit-auth-method button[aria-pressed="true"]{background:linear-gradient(145deg,#d9fff4,#a4e9e3,#e8f5fa)!important;border-color:#6fbdb9!important}
-.bit-card-deck:has(.bit-deck-card:nth-child(2)):after{background:linear-gradient(135deg,#faffff,#e0f7f2)}
-.bit-edit-name-button,.bit-replay-ceremony{background:linear-gradient(120deg,#e5fff7,#8dded7,#e9f4fa)!important;color:#115b58!important;-webkit-text-fill-color:#115b58!important;border-color:#89c7ca!important}
-.bit-blended-heart{background:linear-gradient(135deg,#08a6a7 5%,#4bcba9 52%,#c6e2e9 100%);-webkit-background-clip:text;background-clip:text}
-.bit-sent-stack-icon i{background:linear-gradient(145deg,#e7fff7,#89dcd5,#e2f4f8)}
-#bit-memories .bit-journal-book{background:linear-gradient(90deg,#b6d0d5 0,#e6f4f3 12px,#fffefa 20px,#fffefa calc(100% - 12px),#b6d0d5 100%);border-color:#9bbbc2;box-shadow:5px 7px 0 #b7d5d6,9px 12px 25px #245b5240}
-#bit-memories .bit-journal-pages{background:radial-gradient(circle at 85% 14%,#dcfff199,transparent 35%),repeating-linear-gradient(0deg,transparent 0,transparent 30px,#a9c9c133 31px,#a9c9c133 32px)}
-#bit-memories .bit-journal-navigation{border-top-color:#b9d4d4}
-#bit-memories .bit-journal-navigation span{color:#3a6e6a}
-#bit-memories #bit-memory-story{background-color:#fbfffe}
-.bit-memory-visibility-options label{background:linear-gradient(145deg,#fff,#edfff9)}
-.bit-memory-visibility-options label:has(input:checked){background:linear-gradient(135deg,#c5ffed,#d6f4f7)}
-input,textarea,select{background-color:#fffefa;border-color:#b4d2d3;box-shadow:inset 0 1px 4px rgba(11,81,74,.045)}
-.bit-ceremony-overlay{background:rgba(2,38,38,.75);backdrop-filter:blur(9px)}
-.bit-ceremony-card{
- border:2px solid #d5edf0;
- background:radial-gradient(ellipse at 50% 0%,#fff 0%,#fbfffe 38%,#d8f7ed 100%);
- box-shadow:0 28px 70px #041e1d99,0 0 36px #b7fff4aa,inset 0 0 0 3px #fff,inset 0 0 35px #b5ffed88;
-}
-.bit-ceremony-card h2{font-family:'Bodoni Moda',serif;font-weight:500;letter-spacing:-.035em;text-shadow:0 1px 0 #fff}
-.bit-ceremony-art{filter:drop-shadow(0 8px 18px rgba(15,113,106,.22)) drop-shadow(0 0 12px rgba(149,255,236,.65))}
-.bit-heart-menu-badge{background:linear-gradient(150deg,#0a716a,#169e92);border-color:#eafffc;box-shadow:0 0 9px #9affebaa,0 2px 5px #164e4655}
+.bit-cta{background:linear-gradient(145deg,#fffefa,#f7ead6 70%,#e7d4b4)!important;border:2px solid #d5b67e!important;color:#064c49!important;box-shadow:0 9px 20px #073c3a44,inset 0 2px 1px #fff,0 0 0 2px #fff8e6!important}
+.bit-bottom-nav{background:linear-gradient(165deg,#fffdf6,#f5ebdc 75%,#e9dcc9);border:1.5px solid #d9bd8d;box-shadow:inset 0 2px 1px #fff,0 10px 24px #003a3655,0 0 0 2px #fff9e7}
+.bit-bottom-nav button{background:transparent!important;border:0!important;box-shadow:none!important;color:#0b625b!important}
+.bit-bottom-nav button[aria-current="page"]{background:linear-gradient(140deg,#fffefa,#dff5eb)!important;box-shadow:inset 0 1px 0 #fff,0 0 0 1px #d7bd8e!important}
+.bit-bottom-nav button svg{filter:drop-shadow(0 1px 1px #fff)}
+#bit-card-tabs button[aria-selected="true"],.bit-auth-method button[aria-pressed="true"]{background:linear-gradient(145deg,#fff9e8,#d7f4ed)!important;border-color:#d5b67e!important}
+.bit-edit-name-button,.bit-replay-ceremony{background:linear-gradient(120deg,#fff9e9,#d5f7ee,#e6d0a6)!important;color:#07534f!important;-webkit-text-fill-color:#07534f!important;border-color:#d5b67e!important}
+.bit-sent-stack-icon i{background:linear-gradient(145deg,#fff8e9,#c2e9e1,#e9d4ad)}
+#bit-memories .bit-journal-book{background:linear-gradient(90deg,#b6a789,#fff8e8 12px,#fffefa 20px,#fffefa calc(100% - 12px),#d5bc8e 100%);border-color:#d3b67d;box-shadow:5px 7px 0 #c6b79d,9px 12px 25px #073c3a40}
+#bit-memories .bit-journal-pages{background:repeating-linear-gradient(0deg,transparent 0,transparent 30px,#c5b79d55 31px,#c5b79d55 32px)}
+input,textarea,select{background:#fffefa;border:1px solid #d8c39c;color:#164a45}
+.bit-memory-visibility-options label{background:linear-gradient(145deg,#fffefa,#f5ebdc)}
+.bit-memory-visibility-options label:has(input:checked){background:linear-gradient(135deg,#fff8e9,#d2f4e9)}
+.bit-ceremony-overlay{background:#012a28cc;backdrop-filter:blur(9px)}
+.bit-ceremony-card{border:2px solid #dcb878;background:radial-gradient(ellipse at 50% 0%,#fff 0%,#fffaf2 45%,#e9ddca 100%);box-shadow:0 25px 70px #001c1b99,0 0 0 3px #fff9e8,inset 0 0 0 2px #fff,inset 0 0 38px #fff}
+.bit-ceremony-card h2{font-family:'Bodoni Moda',serif;color:#073e3a;font-weight:500;text-shadow:0 1px 0 #fff}
+.bit-ceremony-art{filter:drop-shadow(0 10px 18px #053b3855) drop-shadow(0 0 12px #9ffff0aa)}
+.bit-heart-menu-badge{background:#006c66;border-color:#fff5dd;box-shadow:0 0 10px #b2fff4aa}
 @media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-spark,.bit-ceremony-glow{animation:none!important}}
