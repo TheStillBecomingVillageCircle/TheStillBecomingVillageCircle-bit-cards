@@ -1,5 +1,17 @@
 (() => {
 'use strict';
+/* Load the connection ceremony from the existing deferred notification entrypoint. */
+const ceremonyScript=document.createElement('script');
+ceremonyScript.src='./connection-ceremony.js';
+ceremonyScript.defer=true;
+document.head.append(ceremonyScript);
+const connectionHeading=document.querySelector('#bit-connections h3');
+if(connectionHeading)connectionHeading.textContent='Connection Creates the Spark';
+const connectionSubtitle=document.createElement('p');
+connectionSubtitle.className='bit-connection-subtitle';
+connectionSubtitle.textContent='Two hearts. One electric connection.';
+connectionHeading?.after(connectionSubtitle);
+
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
 let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
