@@ -324,20 +324,16 @@ input,textarea,select{background:#fffefa;border:1px solid #d8c39c;color:#164a45}
 .bit-photo-paddle{transform-box:view-box;animation-duration:2.4s;animation-timing-function:cubic-bezier(.22,.75,.22,1);animation-fill-mode:both;animation-play-state:paused}
 .bit-photo-paddle-left{animation-name:bit-photo-join-left}
 .bit-photo-paddle-right{animation-name:bit-photo-join-right}
-.bit-heart-bolt-glow,.bit-heart-bolt-core{animation:bit-heart-charge .32s ease-out 1.95s both;animation-play-state:paused}
-.bit-heart-bolt-glow{opacity:.75}
-.bit-ceremony-impact{opacity:0;transform-origin:600px 315px;animation:bit-contact-light 2.2s ease-out 1.85s both;animation-play-state:paused}
-.bit-heart-bolt-branches,.bit-contact-bolt{opacity:0;animation:bit-heart-branches .4s ease-out 1.95s both;animation-play-state:paused}
-.bit-ceremony-art-ready .bit-photo-paddle,.bit-ceremony-art-ready .bit-heart-bolt-glow,.bit-ceremony-art-ready .bit-heart-bolt-core,.bit-ceremony-art-ready .bit-ceremony-impact,.bit-ceremony-art-ready .bit-heart-bolt-branches,.bit-ceremony-art-ready .bit-contact-bolt{animation-play-state:running}
+.bit-ceremony-art-ready .bit-photo-paddle{animation-play-state:running}
 @keyframes bit-photo-join-left{0%,12%{transform:translateX(-155px) rotate(-4deg)}80%{transform:translateX(31px)}90%{transform:translateX(24px)}100%{transform:translateX(28px)}}
 @keyframes bit-photo-join-right{0%,12%{transform:translateX(155px) rotate(4deg)}80%{transform:translateX(-31px)}90%{transform:translateX(-24px)}100%{transform:translateX(-28px)}}
-@keyframes bit-heart-charge{from{opacity:0}to{opacity:1}}
-@keyframes bit-contact-light{0%{opacity:0;transform:scale(.2)}25%{opacity:.8;transform:scale(.95)}100%{opacity:.15;transform:scale(1.1)}}
-@keyframes bit-heart-branches{from{opacity:0}to{opacity:.8}}
 @keyframes bit-spark-arrival{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 .bit-ceremony-image-error .bit-ceremony-artwork,.bit-ceremony-image-error .bit-ceremony-motion{display:none}
 .bit-ceremony-image-error .bit-ceremony-card{padding:24px;background:#fff6e7;border:2px solid #c69b63;border-radius:24px;aspect-ratio:auto;box-sizing:border-box;text-align:center}
 .bit-ceremony-image-error .bit-ceremony-copy{position:static;width:auto;height:auto;clip-path:none;white-space:normal;overflow:visible;margin:0;color:#063e3b}
 .bit-ceremony-image-error .bit-ceremony-card button.bit-ceremony-continue{all:revert!important;display:block!important;margin:20px auto 0!important;padding:14px 24px!important;border-radius:999px!important;background:#005e57!important;color:#fff8eb!important;cursor:pointer!important;border:2px solid #c69b63!important}
 .bit-ceremony-image-error .bit-ceremony-continue span{position:static;width:auto;height:auto;clip-path:none;white-space:normal;overflow:visible}
-@media(prefers-reduced-motion:reduce){.bit-ceremony-card,.bit-photo-paddle,.bit-heart-bolt-glow,.bit-heart-bolt-core,.bit-ceremony-impact,.bit-heart-bolt-branches,.bit-contact-bolt{animation:none}.bit-photo-paddle-left{transform:translateX(28px)}.bit-photo-paddle-right{transform:translateX(-28px)}.bit-heart-bolt-glow,.bit-heart-bolt-core{stroke-dashoffset:0}.bit-ceremony-impact{opacity:.15}.bit-heart-bolt-branches,.bit-contact-bolt{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.bit-ceremony-card,.bit-photo-paddle{animation:none}.bit-photo-paddle-left{transform:translateX(28px)}.bit-photo-paddle-right{transform:translateX(-28px)}}
+
+.bit-electric-charge{position:absolute;top:0;left:0;width:100%;height:47.2561%;pointer-events:none;mix-blend-mode:screen}
+.bit-ceremony-image-error .bit-electric-charge{display:none}
