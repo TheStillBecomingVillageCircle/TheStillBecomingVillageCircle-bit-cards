@@ -1,13 +1,10 @@
 (() => {
 'use strict';
-/* Load the connection ceremony from the existing deferred notification entrypoint. */
+/* Notification center and card interactions. */
 
 const connectionHeading=document.querySelector('#bit-connections h3');
 if(connectionHeading)connectionHeading.textContent='Connection Creates the Spark';
-const connectionSubtitle=document.createElement('p');
-connectionSubtitle.className='bit-connection-subtitle';
-connectionSubtitle.textContent='Two hearts. One electric connection.';
-connectionHeading?.after(connectionSubtitle);
+if(connectionHeading&&!document.querySelector('#bit-connections .bit-connection-subtitle')){const subtitle=document.createElement('p');subtitle.className='bit-connection-subtitle';subtitle.textContent='Two hearts. One electric connection.';connectionHeading.after(subtitle);}
 /* Keep connected people above the add button even if older markup is cached. */
 const connectionsList=document.getElementById('bit-connection-requests');
 const addConnectionButton=document.getElementById('bit-add-connection');
@@ -88,7 +85,7 @@ if(story&&title&&pages){
 /* Delegated pointer gestures work for decks rendered after initial page load. */
 let gesture=null, suppressClickUntil=0;
 document.addEventListener('pointerdown',event=>{
- const deck=event.target.closest?.('.bit-card-deck');
+ const deck=event.target instanceof Element?event.target.closest('.bit-card-deck'):null;
  if(!deck||event.target.closest('button,a,input,textarea,select'))return;
  gesture={deck,x:event.clientX,y:event.clientY,id:event.pointerId};
 },{passive:true});
