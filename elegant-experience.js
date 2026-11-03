@@ -4,11 +4,8 @@ const $=id=>document.getElementById(id);
 const style=document.createElement('style');
 style.textContent=`
 /* Elegant shared typography and compact live journal. */
-.bit-notification-wrap{position:absolute;right:82px;top:12px;z-index:25}
-.heart-menu-welcome{right:148px!important;top:24px!important;max-width:calc(100% - 265px)!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis}
 #bit-notification-toggle{background:#fffaf2;border:1px solid #d2b89a;box-shadow:0 3px 12px #145b5130}
 #bit-notification-toggle .bit-paddles{width:34px;height:34px}
-@media(max-width:440px){.bit-notification-wrap{right:77px;top:13px}.heart-menu-welcome{right:143px!important;font-size:20px!important;max-width:calc(100% - 235px)!important}}
 .bit-connection-subtitle,.bit-journal-top h3,#bit-memories>h2,#bit-memories .bit-journal-entry h4{font-family:'Euphoria Script','Caveat',cursive!important;font-weight:400!important}
 #bit-memories>h2{font-size:clamp(36px,8vw,54px)}
 #bit-memories #bit-memory-form{background:#fff9ed;border:1px solid #dfcfb1;border-radius:22px;padding:14px 18px;margin:14px 0}
