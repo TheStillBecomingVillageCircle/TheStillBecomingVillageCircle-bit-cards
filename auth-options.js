@@ -4,6 +4,7 @@
   const $ = id => document.getElementById(id);
   const db = window.bitCardsDb;
   if (!db) return;
+  if (!linkForm || !passwordForm || !status || !$('bit-method-link') || !$('bit-method-password')) return;
   const linkForm = $('bit-login-form');
   const passwordForm = $('bit-password-form');
   const status = $('bit-login-status');
@@ -21,7 +22,7 @@
   $('bit-method-password').addEventListener('click', () => setMode('password'));
   async function withBusy(button, action) {
     button.disabled = true;
-    try { await action(); } finally { button.disabled = false; }
+    try { await action(); } catch (error) { status.textContent = 'Something went wrong. Please try again.'; console.error('Authentication action failed',error); } finally { button.disabled = false; }
   }
   function credentials() {
     return {email: $('bit-password-email').value.trim(), password: $('bit-password-value').value};
@@ -71,9 +72,10 @@
     if (event === 'PASSWORD_RECOVERY') {
       window.bitShowView?.('account');
       const panel = $('bit-account-in');
+      if (!panel) return;
       panel.hidden = false;
       const security = panel.querySelector('.bit-security-panel');
-      security.open = true;
+      if (security) security.open = true;
       $('bit-security-status').textContent = 'Choose a new password to finish account recovery.';
     }
   });
