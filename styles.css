@@ -253,3 +253,55 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .site-header .bit-notification-wrap{position:absolute;right:82px;top:12px;z-index:25}
 .site-header .heart-menu-welcome,.site-header .heart-menu-welcome:not([hidden]){position:absolute;right:18px;top:84px;max-width:calc(100% - 36px);white-space:nowrap;overflow:visible;text-overflow:clip;text-align:right;z-index:2}
 @media(max-width:480px){.site-header .bit-notification-wrap{right:77px;top:12px}.site-header .heart-menu-welcome{right:18px;top:84px;max-width:calc(100% - 36px);font-size:23px}}
+
+/* Consolidated component styles — maintained in the canonical stylesheet. */
+
+/* Elegant shared typography and compact live journal. */
+#bit-notification-toggle{background:#fffaf2;border:1px solid #d2b89a;box-shadow:0 3px 12px #145b5130}
+#bit-notification-toggle .bit-paddles{width:34px;height:34px}
+.bit-connection-subtitle,.bit-journal-top h3,#bit-memories>h2,#bit-memories .bit-journal-entry h4{font-family:'Euphoria Script','Caveat',cursive!important;font-weight:400!important}
+#bit-memories>h2{font-size:clamp(36px,8vw,54px)}
+#bit-memories #bit-memory-form{background:#fff9ed;border:1px solid #dfcfb1;border-radius:22px;padding:14px 18px;margin:14px 0}
+#bit-memories #bit-memory-form label{margin:7px 0 3px;font-size:.9rem}
+#bit-memories #bit-memory-title,#bit-memories #bit-memory-date{padding:9px 12px;min-height:40px}
+#bit-memories #bit-memory-story{min-height:0;height:120px;line-height:34px;padding:0 12px 0;font-family:'Euphoria Script','Caveat',cursive;font-size:clamp(27px,5.5vw,36px);color:#1d655c;background:repeating-linear-gradient(to bottom,transparent 0,transparent 32px,#b4d8ce 33px,#b4d8ce 34px);background-color:#fffdf7;border:0;border-radius:0;resize:vertical;letter-spacing:.2px}
+#bit-memories #bit-memory-story::placeholder{font-family:'Euphoria Script','Caveat',cursive;font-size:28px}
+#bit-memories .bit-journal-pages{background-size:auto,auto;background-position:0 0}
+#bit-memories .bit-journal-entry{min-height:190px!important;padding:10px 12px!important}
+#bit-memories .bit-journal-entry h4{font-size:clamp(30px,6vw,43px)!important;line-height:34px;margin:0!important}
+#bit-memories .bit-journal-entry p:nth-of-type(2){font-family:'Euphoria Script','Caveat',cursive!important;font-size:clamp(27px,5vw,34px)!important;line-height:32px!important;white-space:pre-wrap;overflow-wrap:anywhere}
+#bit-memories .bit-journal-book{margin-top:14px}
+#bit-memories .bit-journal-pages{min-height:260px!important}
+#bit-memories .bit-journal-top{padding-bottom:8px}
+.bit-card-deck{touch-action:pan-y;cursor:grab}
+.bit-card-deck:active{cursor:grabbing}
+.bit-card-deck .bit-deck-card{transition:transform .22s ease,opacity .22s ease}
+.bit-card-deck.bit-swipe-next .bit-deck-card:not([hidden]){transform:translateX(-18px)}
+.bit-card-deck.bit-swipe-prev .bit-deck-card:not([hidden]){transform:translateX(18px)}
+@media(prefers-reduced-motion:reduce){.bit-deck-card{transition:none!important}}
+
+
+ #bit-memories .bit-journal-live{display:block;padding:0 14px 12px;min-height:180px;background:transparent}
+ #bit-memories .bit-journal-live[hidden]{display:none!important}
+ #bit-memories .bit-journal-live h4,#bit-memories .bit-journal-live p{font-family:'Euphoria Script','Caveat',cursive!important;color:#175d55;font-weight:400;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+ #bit-memories .bit-journal-live h4{font-size:clamp(32px,7vw,42px);line-height:32px}
+ #bit-memories .bit-journal-live p{font-size:clamp(27px,5.7vw,35px);line-height:32px}
+ #bit-memories .bit-journal-pages:has(.bit-journal-live:not([hidden])) #bit-memory-list,
+ #bit-memories .bit-journal-pages:has(.bit-journal-live:not([hidden])) .bit-journal-shared-section{display:none!important}
+ 
+
+.bit-ceremony-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(9,38,36,.82);padding:18px}
+.bit-ceremony-overlay[hidden]{display:none!important}
+.bit-ceremony-card{width:min(94vw,430px);border-radius:28px;padding:28px 20px;text-align:center;background:linear-gradient(145deg,#f9fff8,#d7f1e9);color:#195c54;box-shadow:0 20px 65px #061e1c88}
+.bit-ceremony-card h2{font-size:1.65rem;margin:10px 0}
+.bit-ceremony-card p{margin:8px 0 18px}
+.bit-ceremony-art{width:min(75vw,290px);height:auto;overflow:visible}
+.bit-ceremony-left{animation:bit-ceremony-left 2.4s ease-in-out both;transform-origin:50% 50%}
+.bit-ceremony-right{animation:bit-ceremony-right 2.4s ease-in-out both;transform-origin:50% 50%}
+.bit-ceremony-heart{animation:bit-ceremony-heart 2.4s ease-in-out both;transform-origin:50% 50%}
+.bit-ceremony-card button{padding:12px 24px;border:0;border-radius:999px;background:#216f65;color:white;font-weight:700}
+@keyframes bit-ceremony-left{0%,15%{transform:translateX(-22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(-5px)}}
+@keyframes bit-ceremony-right{0%,15%{transform:translateX(22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(5px)}}
+@keyframes bit-ceremony-heart{0%,35%{opacity:0;transform:scale(.4)}45%,75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-heart{animation:none!important}}
+
