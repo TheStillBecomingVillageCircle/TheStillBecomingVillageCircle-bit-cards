@@ -225,28 +225,12 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 /* Single notification center for account activity. */
 .bit-notification-wrap{position:relative;z-index:100}
-#bit-notification-toggle{position:relative;border:1px solid #c8ad8d;border-radius:50%;width:42px;height:42px;background:#fffaf2;color:#236c65;font-size:1.45rem;cursor:pointer}
-#bit-notification-toggle::first-letter{color:#168f8c}
-#bit-notification-count{position:absolute;top:-7px;right:-7px;min-width:20px;height:20px;border-radius:12px;background:#138d87;color:#fff;font-size:.72rem;line-height:20px;font-weight:700}
 #bit-notification-panel{position:absolute;right:0;top:50px;width:min(350px,calc(100vw - 24px));max-height:min(65vh,500px);overflow:auto;padding:18px;border:1px solid #b6d8c9;border-radius:18px;background:#fffaf2;box-shadow:0 15px 38px #163c393d;color:#195a54}
 #bit-notification-panel h3{margin:0 0 12px}
 .bit-notification-item{padding:12px 0;border-top:1px solid #cde1d7}
 .bit-notification-item.unread{border-left:4px solid #25a9a0;padding-left:9px}
 .bit-notification-item p{margin:0 0 10px}
 .bit-notification-item button{font-size:.85rem;padding:8px 10px;margin:2px 5px 2px 0;color:#185f59;border:1px solid #9fc8b9;background:#e9f8ef;border-radius:10px}
-#bit-notification-toggle[hidden],#bit-notification-panel[hidden],#bit-notification-count[hidden]{display:none!important}
-
-/* B.I.T. notification paddles: spark only on a new arrival. */
-#bit-notification-toggle{display:grid;place-items:center;width:48px;height:48px;padding:5px;overflow:visible}
-#bit-notification-toggle .bit-paddles{display:block;overflow:visible}
-#bit-notification-toggle .bit-electric-spark{opacity:0;transform-origin:24px 24px}
-#bit-notification-toggle.bit-spark-arrival .bit-paddle-left{animation:bit-paddle-left .85s ease-out 1}
-#bit-notification-toggle.bit-spark-arrival .bit-paddle-right{animation:bit-paddle-right .85s ease-out 1}
-#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{animation:bit-electric-flash .85s ease-out 1}
-@keyframes bit-paddle-left{0%,100%{transform:translateX(0)}30%{transform:translateX(4px)}55%{transform:translateX(2px)}}
-@keyframes bit-paddle-right{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}55%{transform:translateX(-2px)}}
-@keyframes bit-electric-flash{0%,22%,65%,100%{opacity:0;transform:scale(.65)}30%,42%,54%{opacity:1;transform:scale(1.15)}}
-@media(prefers-reduced-motion:reduce){#bit-notification-toggle.bit-spark-arrival .bit-paddle,#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{animation:none!important}#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{opacity:1}}
 
 /* Header controls: reserve separate space for the greeting on all screen sizes. */
 .site-header{position:relative;min-height:146px}
@@ -257,8 +241,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 /* Consolidated component styles — maintained in the canonical stylesheet. */
 
 /* Elegant shared typography and compact live journal. */
-#bit-notification-toggle{background:#fffaf2;border:1px solid #d2b89a;box-shadow:0 3px 12px #145b5130}
-#bit-notification-toggle .bit-paddles{width:34px;height:34px}
 .bit-connection-subtitle,.bit-journal-top h3,#bit-memories>h2,#bit-memories .bit-journal-entry h4{font-family:'Euphoria Script','Caveat',cursive!important;font-weight:400!important}
 #bit-memories>h2{font-size:clamp(36px,8vw,54px)}
 #bit-memories #bit-memory-form{background:#fff9ed;border:1px solid #dfcfb1;border-radius:22px;padding:14px 18px;margin:14px 0}
@@ -327,8 +309,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 #heart-menu .bit-menu-notifications{display:block;width:100%;padding:12px 16px;text-align:left;background:transparent;color:inherit;border:0;border-radius:10px;font:inherit;cursor:pointer}
 #heart-menu .bit-menu-notifications:hover,#heart-menu .bit-menu-notifications:focus-visible{background:#d9f3e9;outline-offset:2px}
 
-/* One heart menu, not two header buttons. Notification inbox remains available inside menu. */
-#bit-notification-toggle{display:none!important}
 #bit-notification-panel:not([hidden]){position:fixed!important;z-index:9999!important;top:clamp(75px,12vh,125px)!important;right:16px!important;left:auto!important;width:min(420px,calc(100vw - 32px))!important;max-height:72vh!important;overflow-y:auto!important}
 
 /* Unread notifications belong to the single heart navigation control. */
