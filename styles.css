@@ -292,12 +292,12 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
  --bit-metal:linear-gradient(135deg,#fff 0%,#a5bcc4 19%,#faffff 37%,#829da9 54%,#fff 75%,#a1b7c0 100%);
  --bit-surface:radial-gradient(ellipse at 22% 0%,#fff 0%,#fbfffe 28%,#effff9 62%,#d8f5ed 100%);
 }
-html{background:#126c68}
+html{background:#7ff0d4}
 body{
- background:radial-gradient(ellipse 65% 28% at 50% 7%,rgba(255,255,255,.9),transparent 78%),
- radial-gradient(ellipse 55% 42% at 8% 40%,rgba(183,255,231,.83),transparent 80%),
- radial-gradient(ellipse 55% 42% at 93% 72%,rgba(182,251,247,.78),transparent 80%),
- linear-gradient(145deg,#1e9d98 0%,#72e5d2 26%,#a5f9e5 48%,#52cdbd 76%,#117a78 100%);
+ background:radial-gradient(ellipse 65% 28% at 50% 7%,rgba(255,255,255,.66),transparent 78%),
+ radial-gradient(ellipse 55% 42% at 8% 40%,rgba(207,255,236,.46),transparent 80%),
+ radial-gradient(ellipse 55% 42% at 93% 72%,rgba(195,255,244,.42),transparent 80%),
+ linear-gradient(145deg,#5bd8bd 0%,#79efd1 26%,#98f7dd 48%,#68e4c8 76%,#42c9b4 100%);
  background-attachment:fixed;
  color:#124d4b;
 }
