@@ -163,3 +163,14 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 .bit-stack-controls{display:flex;justify-content:space-between;gap:8px}
 .bit-stack-controls button{flex:1;min-width:0}
 #bit-card-collection:not([hidden]){display:block!important}
+
+/* Authentication choices and account security */
+.bit-auth-method{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.bit-auth-method button{flex:1;min-width:135px;border:1px solid #77b8ac;background:#fffaf3;color:#175a54;font-weight:600}
+.bit-auth-method button[aria-pressed="true"]{background:linear-gradient(120deg,#b9eee0,#83d6d0,#f6e2a8);border-color:#288f89}
+#bit-login-form[hidden],#bit-password-form[hidden]{display:none!important}
+#bit-password-form button{margin-top:12px}
+.bit-security-panel{margin:18px 0;padding:16px;border:1px solid #9acfc1;border-radius:16px;background:#fffaf3}
+.bit-security-panel summary{cursor:pointer;font-weight:650;color:#175a54}
+.bit-security-panel form{margin-top:14px}
+.bit-security-panel button{background:#168d91;color:white}
