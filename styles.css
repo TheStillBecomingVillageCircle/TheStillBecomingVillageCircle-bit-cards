@@ -224,7 +224,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 @media(min-width:760px){#bit-memories .bit-journal-book{padding:28px 34px}#bit-memories .bit-journal-pages{min-height:440px;padding:30px 32px;background-image:linear-gradient(90deg,transparent 49.7%,#b9ac9444 50%,transparent 50.3%),radial-gradient(circle at 85% 14%,#f5dfac77,transparent 35%),repeating-linear-gradient(0deg,transparent 0,transparent 30px,#a9c9c133 31px,#a9c9c133 32px)}}
 
 /* Single notification center for account activity. */
-.bit-notification-wrap{position:relative;z-index:100}
 #bit-notification-panel{position:absolute;right:0;top:50px;width:min(350px,calc(100vw - 24px));max-height:min(65vh,500px);overflow:auto;padding:18px;border:1px solid #b6d8c9;border-radius:18px;background:#fffaf2;box-shadow:0 15px 38px #163c393d;color:#195a54}
 #bit-notification-panel h3{margin:0 0 12px}
 .bit-notification-item{padding:12px 0;border-top:1px solid #cde1d7}
@@ -232,13 +231,9 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-notification-item p{margin:0 0 10px}
 .bit-notification-item button{font-size:.85rem;padding:8px 10px;margin:2px 5px 2px 0;color:#185f59;border:1px solid #9fc8b9;background:#e9f8ef;border-radius:10px}
 
-/* Header controls: reserve separate space for the greeting on all screen sizes. */
 .site-header{position:relative;min-height:146px}
-.site-header .bit-notification-wrap{position:absolute;right:82px;top:12px;z-index:25}
 .site-header .heart-menu-welcome,.site-header .heart-menu-welcome:not([hidden]){position:absolute;right:18px;top:84px;max-width:calc(100% - 36px);white-space:nowrap;overflow:visible;text-overflow:clip;text-align:right;z-index:2}
-@media(max-width:480px){.site-header .bit-notification-wrap{right:77px;top:12px}.site-header .heart-menu-welcome{right:18px;top:84px;max-width:calc(100% - 36px);font-size:23px}}
-
-/* Consolidated component styles — maintained in the canonical stylesheet. */
+@media(max-width:480px){.site-header .heart-menu-welcome{right:18px;top:84px;max-width:calc(100% - 36px);font-size:23px}}
 
 /* Elegant shared typography and compact live journal. */
 .bit-connection-subtitle,.bit-journal-top h3,#bit-memories>h2,#bit-memories .bit-journal-entry h4{font-family:'Euphoria Script','Caveat',cursive!important;font-weight:400!important}
