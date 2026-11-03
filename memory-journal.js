@@ -11,6 +11,26 @@
   let index = 0;
   let entries = [];
   let scheduled = false;
+  const storyInput = document.getElementById('bit-memory-story');
+  const titleInput = document.getElementById('bit-memory-title');
+  const live = document.createElement('article');
+  live.className = 'bit-journal-live';
+  live.hidden = true;
+  live.setAttribute('aria-label','Live memory writing preview');
+  const liveTitle = document.createElement('h4');
+  const liveText = document.createElement('p');
+  live.append(liveTitle,liveText);
+  pages.prepend(live);
+  function syncLive(){
+    liveTitle.textContent=titleInput?.value||'';
+    liveText.textContent=storyInput?.value||'';
+    live.hidden=!(liveTitle.textContent||liveText.textContent);
+    schedule();
+  }
+  storyInput?.addEventListener('input',syncLive);
+  titleInput?.addEventListener('input',syncLive);
+  document.getElementById('bit-memory-form')?.addEventListener('reset',()=>setTimeout(syncLive,0));
+  document.getElementById('bit-memory-form')?.addEventListener('submit',()=>setTimeout(syncLive,100));
   const sharedSections = Array.from(pages.children).filter(el => el !== personal && el.tagName === 'SECTION');
   sharedSections.forEach(section => {
     section.classList.add('bit-journal-shared-section');
@@ -67,11 +87,6 @@
   next.addEventListener('click', () => { if (index < entries.length - 1) { index++; refresh(); book.scrollIntoView({behavior:'smooth',block:'start'}); } });
   const observer = new MutationObserver(schedule);
   observer.observe(personal, {childList:true});
-  const storyInput=document.getElementById('bit-memory-story');
-  const titleInput=document.getElementById('bit-memory-title');
-  storyInput?.addEventListener('input',schedule);
-  titleInput?.addEventListener('input',schedule);
-  document.getElementById('bit-memory-form')?.addEventListener('reset',()=>setTimeout(schedule,0));
   sharedSections.forEach(section => observer.observe(section, {childList:true}));
-  refresh();
+  syncLive();
 })();
