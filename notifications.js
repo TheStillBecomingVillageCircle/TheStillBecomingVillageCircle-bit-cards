@@ -65,25 +65,6 @@ window.bitRefreshNotifications=refresh;refresh();
 'use strict';
 const $=id=>document.getElementById(id);
 
-/* Mirror the white text box into the lined journal, without changing saved entries. */
-const story=$('bit-memory-story'),title=$('bit-memory-title'),pages=$('bit-journal-pages');
-if(story&&title&&pages){
- const preview=document.createElement('article');
- preview.className='bit-journal-live';
- preview.hidden=true;
- preview.setAttribute('aria-label','Live memory writing preview');
- const heading=document.createElement('h4');
- const ink=document.createElement('p');
- preview.append(heading,ink);
- pages.prepend(preview);
-
- function sync(){const active=Boolean(title.value||story.value);preview.hidden=!active;heading.textContent=title.value;ink.textContent=story.value;}
- story.addEventListener('input',sync);
- title.addEventListener('input',sync);
- $('bit-memory-form')?.addEventListener('reset',()=>requestAnimationFrame(sync));
- $('bit-memory-form')?.addEventListener('submit',()=>setTimeout(sync,100));
- sync();
-}
 /* Delegated pointer gestures work for decks rendered after initial page load. */
 let gesture=null, suppressClickUntil=0;
 document.addEventListener('pointerdown',event=>{
