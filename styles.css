@@ -330,3 +330,8 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 /* One heart menu, not two header buttons. Notification inbox remains available inside menu. */
 #bit-notification-toggle{display:none!important}
 #bit-notification-panel:not([hidden]){position:fixed!important;z-index:9999!important;top:clamp(75px,12vh,125px)!important;right:16px!important;left:auto!important;width:min(420px,calc(100vw - 32px))!important;max-height:72vh!important;overflow-y:auto!important}
+
+/* Unread notifications belong to the single heart navigation control. */
+.heart-menu-toggle{position:relative}
+.bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #f7f0e5;box-shadow:0 2px 5px #164e4655;pointer-events:none}
+.bit-heart-menu-badge[hidden]{display:none!important}
