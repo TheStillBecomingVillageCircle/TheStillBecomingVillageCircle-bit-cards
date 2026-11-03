@@ -55,15 +55,33 @@
       ctx.globalAlpha=strength*.4;ctx.strokeStyle=color;ctx.lineWidth=width*3.6;ctx.shadowColor=color;ctx.shadowBlur=19;ctx.stroke();
       ctx.globalAlpha=strength;ctx.strokeStyle=core;ctx.lineWidth=width;ctx.shadowBlur=5;ctx.stroke();
     }
-    function heartSide(guide,color,strength) {
+    function circulatingHeart(strength,age) {
+      const guide=left.concat([...right].reverse().slice(1));
       const points=bolt(guide.map(([x,y],i)=>i===0||i===guide.length-1?[x,y]:[x+jitter(7),y+jitter(7)]),20);
+      const phase=reduced?0:age/4800;
+      const blend=(a,b,mix)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*mix)).join(',')+')';
+      const colorsAt=position=>{
+        const wave=Math.sin((position-phase)*Math.PI*2);
+        const mix=1-Math.max(0,Math.min(1,(wave+.28)/.56));
+        return {
+          core:blend([0,102,80],[227,233,236],mix),
+          glow:blend([32,175,144],[82,110,119],mix),
+          branch:blend([8,127,104],[135,157,165],mix)
+        };
+      };
       ctx.save();ctx.globalCompositeOperation='source-over';
-      stroke(points,color,3.4,strength,'#006650');
+      // Move the two colors along the perimeter; the heart itself stays in place.
+      const span=6;
+      for(let i=0;i<points.length-1;i+=span){
+        const colors=colorsAt((i+span/2)/(points.length-1));
+        stroke(points.slice(i,Math.min(i+span+1,points.length)),colors.glow,3.4,strength,colors.core);
+      }
       for(let i=5;i<points.length-5;i+=9){
+        const colors=colorsAt(i/(points.length-1));
         const p=points[i],angle=Math.atan2(p[1]-265,p[0]-600)+jitter(.5),length=25+Math.random()*58;
         const tip=[p[0]+Math.cos(angle)*length,p[1]+Math.sin(angle)*length];
-        const branch=bolt([p,tip],12);stroke(branch,color,1.15,strength*.8,'#087f68');
-        if(i%2){const q=branch[4];stroke(bolt([q,[q[0]+jitter(27),q[1]+jitter(27)]],7),color,.7,strength*.65,'#168e77');}
+        const branch=bolt([p,tip],12);stroke(branch,colors.glow,1.15,strength*.8,colors.branch);
+        if(i%2){const q=branch[4];stroke(bolt([q,[q[0]+jitter(27),q[1]+jitter(27)]],7),colors.glow,.7,strength*.65,colors.branch);}
       }
       ctx.restore();
     }
@@ -85,7 +103,7 @@
       glow.addColorStop(1,'rgba(140,255,230,0)');
       ctx.fillStyle=glow;ctx.fillRect(470,185,260,260);
       stroke(bolt([[561,304],[600,315],[640,303]],13),'#e9fff0',3.7,strength);
-      if(chargeAge>90||reduced){heartSide(left,'#20af90',strength);heartSide(right,'#159c86',strength);}
+      if(chargeAge>90||reduced){circulatingHeart(strength,chargeAge);}
       for(let i=0;i<9;i++){
         const angle=i/9*Math.PI*2+jitter(.2),length=42+Math.random()*(55+burst*60);
         const tip=[600+Math.cos(angle)*length,315+Math.sin(angle)*length];
