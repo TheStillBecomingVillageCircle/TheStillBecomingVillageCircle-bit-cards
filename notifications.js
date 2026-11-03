@@ -1,6 +1,7 @@
 (() => {
 'use strict';
 /* Load the connection ceremony from the existing deferred notification entrypoint. */
+const elegantScript=document.createElement('script');elegantScript.src='./elegant-experience.js';document.head.append(elegantScript);
 const ceremonyScript=document.createElement('script');
 ceremonyScript.src='./connection-ceremony.js';
 ceremonyScript.defer=true;
