@@ -16,6 +16,15 @@ const spark=document.querySelector('#bit-notification-toggle .bit-electric-spark
 if(spark){spark.setAttribute('d','M24 16c-4-7-14-4-14 3 0 6 7 11 14 17 7-6 14-11 14-17 0-7-10-10-14-3Z');}
 
 
+/* Keep connected people above the add button even if older markup is cached. */
+const connectionsList=document.getElementById('bit-connection-requests');
+const addConnectionButton=document.getElementById('bit-add-connection');
+if(connectionsList&&addConnectionButton)connectionsList.after(addConnectionButton);
+const requestHeading=connectionsList?.previousElementSibling;
+if(requestHeading?.textContent?.trim()==='Connection Requests')requestHeading.textContent='Your Connections & Requests';
+const proposals=document.getElementById('bit-shared-name-requests');
+if(proposals){proposals.setAttribute('aria-live','polite');}
+document.querySelector('#bit-notification-toggle')?.removeAttribute('hidden');
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
 let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
