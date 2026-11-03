@@ -20,6 +20,7 @@
     <ellipse class="bit-ceremony-impact" cx="600" cy="315" rx="195" ry="195" fill="url(#bit-impact-light)"/>
     <g class="bit-photo-paddle bit-photo-paddle-left"><image class="bit-paddle-texture" width="1199" height="1312" clip-path="url(#bit-photo-left)"/></g>
     <g class="bit-photo-paddle bit-photo-paddle-right"><image class="bit-paddle-texture" width="1199" height="1312" clip-path="url(#bit-photo-right)"/></g>
+    <path class="bit-contact-bolt" d="M627 227 569 315 597 310 573 400 638 295 610 302Z" fill="url(#bit-lightning-colors)" stroke="#fffef5" stroke-width="2" filter="url(#bit-lightning-glow)"/>
     <g class="bit-heart-lightning" fill="none" stroke-linecap="butt" stroke-linejoin="miter">
       <use href="#bit-heart-bolt-path" class="bit-heart-bolt-glow" stroke="url(#bit-lightning-colors)" stroke-width="5.5" filter="url(#bit-lightning-glow)"/>
       <use href="#bit-heart-bolt-path" class="bit-heart-bolt-core" stroke="#fffef6" stroke-width="1.6"/>
