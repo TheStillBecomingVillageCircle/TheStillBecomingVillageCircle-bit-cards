@@ -2,21 +2,12 @@
 'use strict';
 /* Load the connection ceremony from the existing deferred notification entrypoint. */
 
-const ceremonyScript=document.createElement('script');
-ceremonyScript.src='./connection-ceremony.js';
-ceremonyScript.defer=true;
-document.head.append(ceremonyScript);
 const connectionHeading=document.querySelector('#bit-connections h3');
 if(connectionHeading)connectionHeading.textContent='Connection Creates the Spark';
 const connectionSubtitle=document.createElement('p');
 connectionSubtitle.className='bit-connection-subtitle';
 connectionSubtitle.textContent='Two hearts. One electric connection.';
 connectionHeading?.after(connectionSubtitle);
-/* Complete heart-shaped electrical flash between the two paddle halves. */
-const spark=document.querySelector('#bit-notification-toggle .bit-electric-spark');
-if(spark){spark.setAttribute('d','M24 16c-4-7-14-4-14 3 0 6 7 11 14 17 7-6 14-11 14-17 0-7-10-10-14-3Z');}
-
-
 /* Keep connected people above the add button even if older markup is cached. */
 const connectionsList=document.getElementById('bit-connection-requests');
 const addConnectionButton=document.getElementById('bit-add-connection');
