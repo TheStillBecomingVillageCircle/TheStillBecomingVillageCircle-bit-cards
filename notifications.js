@@ -66,7 +66,6 @@ window.bitRefreshNotifications=refresh;refresh();
 'use strict';
 const $=id=>document.getElementById(id);
 
-const notice=$('bit-notification-toggle');if(notice){const svg=notice.querySelector('svg');if(svg){svg.setAttribute('viewBox','0 0 48 48');svg.innerHTML='<path d="M24 40C17 34 7 27 7 17.5 7 9 17 6 24 14c7-8 17-5 17 3.5C41 27 31 34 24 40Z" fill="#70cdbb" stroke="#276f66" stroke-width="1.5"/><path d="m24 17-4 9h6l-2 7 7-11h-6l2-5" fill="none" stroke="#f7e5ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';}}
 /* Mirror the white text box into the lined journal, without changing saved entries. */
 const story=$('bit-memory-story'),title=$('bit-memory-title'),pages=$('bit-journal-pages');
 if(story&&title&&pages){
