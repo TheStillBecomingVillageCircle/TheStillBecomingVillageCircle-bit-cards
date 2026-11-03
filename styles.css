@@ -27,18 +27,16 @@ button.active,.primary{background:#168d91;color:white}
 .platinum{background:linear-gradient(125deg,#647481,#e9eef2 18%,#9daab5 36%,#fff 49%,#8696a4 68%,#d4dce3 83%,#667582);border:2px solid #778794;color:#233642}
 .midnight{background:linear-gradient(135deg,#162a37,#456474);color:white}
 .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.day{height:44px;margin:0;padding:4px;font-size:13px}
+.day{height:44px;margin:0;padding:4px;font-size:13px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
 .has{background:#bcead8}
-.day{position:relative}
 .calendar-heart{display:block;width:23px;height:22px;fill:#f7f0e5;stroke:#8a6855;stroke-width:1.6;stroke-linejoin:round;overflow:visible}
 .day.has .calendar-heart{fill:#594238;stroke:#594238}
-.day{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
 .chosen{outline:2px solid #268d73}
 .muted{font-size:13px;color:#62796e}
 #history article{border-top:1px solid #ddd;padding:10px 0}
 @media(max-width:700px){.cols{grid-template-columns:1fr}}
-.site-header{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.heart-menu-toggle{display:grid;place-items:center;width:58px;height:58px;flex:none;margin:0;border:0;background:transparent;color:#145650;padding:4px}
+.site-header{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:relative;min-height:146px}
+.heart-menu-toggle{display:grid;place-items:center;width:58px;height:58px;flex:none;margin:0;border:0;background:transparent;color:#145650;padding:4px;border-radius:0!important;background:transparent!important;box-shadow:none!important;position:relative}
 .heart-menu-toggle svg{width:42px;height:42px;overflow:visible}
 .heart-menu-toggle:focus-visible{outline:2px solid #145650;outline-offset:2px}
 .heart-menu-panel{position:absolute;right:20px;top:82px;z-index:10;width:min(250px,calc(100vw - 40px));padding:10px;background:#f8fffb;border:1px solid #a1d9cc;border-radius:19px;box-shadow:0 12px 30px rgba(12,75,67,.19)}
@@ -56,7 +54,6 @@ main>p{font-size:17px;line-height:1.65;letter-spacing:.01em}
 .bit-cta{font-style:italic;font-weight:500;letter-spacing:-.02em}
 .box>h2{font-size:clamp(29px,4vw,39px)}
 label{font-weight:500;letter-spacing:.035em}
-.heart-menu-toggle{border-radius:0!important}
 .heart-menu-toggle svg{filter:drop-shadow(0 2px 2px rgba(50,35,30,.18))}
 .bit-cta-icon{width:43px;height:40px}
 .site-header h1{color:#194b4b}
@@ -64,7 +61,6 @@ label{font-weight:500;letter-spacing:.035em}
 main>h2{font-family:"Euphoria Script",cursive;font-size:clamp(49px,9vw,78px);font-weight:400;line-height:1.08;letter-spacing:0;max-width:850px;margin-top:26px;margin-bottom:22px}
 .box>h2{font-family:"Euphoria Script",cursive;font-size:clamp(43px,7vw,60px);font-weight:400;letter-spacing:0;line-height:1.1}
 .bit-cta{font-family:"Euphoria Script",cursive!important;font-size:clamp(31px,5vw,41px)!important;font-style:normal!important;font-weight:400!important;letter-spacing:0!important;background:#f7f0e5!important;border:1.5px solid #8a6855!important;color:#594238!important;box-shadow:0 5px 15px rgba(62,56,56,.12)!important;padding:11px 22px!important}
-.heart-menu-toggle{background:transparent!important;box-shadow:none!important}
 .heart-menu-toggle svg path:first-of-type{fill:none;stroke:#f6e8d8}
 .site-header h1{font-family:"Bodoni Moda",serif}
 .card h2{font-family:"Bodoni Moda",serif}
@@ -153,7 +149,7 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 #bit-memory-list article button{margin-right:10px}
 .bit-day-stack{margin:22px 0 34px}
 .bit-day-stack>h3{margin:0 0 14px}
-.bit-card-deck{position:relative;padding:12px 12px 20px;margin-right:8px}
+.bit-card-deck{position:relative;padding:12px 12px 20px;margin-right:8px;touch-action:pan-y;cursor:grab}
 .bit-card-deck:has(.bit-deck-card:nth-child(2)):before,.bit-card-deck:has(.bit-deck-card:nth-child(2)):after{content:'';position:absolute;inset:4px 2px 14px 20px;border:1px solid #b5c9c5;border-radius:26px;background:#d9ede7;transform:rotate(3deg);box-shadow:0 7px 14px #164f4d20}
 .bit-card-deck:has(.bit-deck-card:nth-child(2)):after{inset:8px 6px 10px 16px;background:#f2e9db;transform:rotate(-2deg)}
 .bit-deck-card{position:relative;z-index:2}
@@ -231,7 +227,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-notification-item p{margin:0 0 10px}
 .bit-notification-item button{font-size:.85rem;padding:8px 10px;margin:2px 5px 2px 0;color:#185f59;border:1px solid #9fc8b9;background:#e9f8ef;border-radius:10px}
 
-.site-header{position:relative;min-height:146px}
 .site-header .heart-menu-welcome,.site-header .heart-menu-welcome:not([hidden]){position:absolute;right:18px;top:84px;max-width:calc(100% - 36px);white-space:nowrap;overflow:visible;text-overflow:clip;text-align:right;z-index:2}
 @media(max-width:480px){.site-header .heart-menu-welcome{right:18px;top:84px;max-width:calc(100% - 36px);font-size:23px}}
 
@@ -250,7 +245,6 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 #bit-memories .bit-journal-book{margin-top:14px}
 #bit-memories .bit-journal-pages{min-height:260px!important}
 #bit-memories .bit-journal-top{padding-bottom:8px}
-.bit-card-deck{touch-action:pan-y;cursor:grab}
 .bit-card-deck:active{cursor:grabbing}
 .bit-card-deck .bit-deck-card{transition:transform .22s ease,opacity .22s ease}
 .bit-card-deck.bit-swipe-next .bit-deck-card:not([hidden]){transform:translateX(-18px)}
@@ -307,6 +301,5 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 #bit-notification-panel:not([hidden]){position:fixed!important;z-index:9999!important;top:clamp(75px,12vh,125px)!important;right:16px!important;left:auto!important;width:min(420px,calc(100vw - 32px))!important;max-height:72vh!important;overflow-y:auto!important}
 
 /* Unread notifications belong to the single heart navigation control. */
-.heart-menu-toggle{position:relative}
 .bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #f7f0e5;box-shadow:0 2px 5px #164e4655;pointer-events:none}
 .bit-heart-menu-badge[hidden]{display:none!important}
