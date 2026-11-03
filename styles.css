@@ -267,14 +267,14 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #e8fffa;box-shadow:0 2px 5px #164e4655;pointer-events:none}
 .bit-heart-menu-badge[hidden]{display:none!important}
 
-/* Reference-matched luxury palette — one cohesive site-wide layer. */
+/* Aquamarine background with dark, readable text and warm ivory panels. */
 :root{--bit-ink:#073c3a;--bit-teal:#006a65;--bit-deep:#064b48;--bit-aqua:#11c6c0;--bit-ivory:#f9f4e9;--bit-pearl:#fffaf2;--bit-champagne:#dcb878;--bit-metal:#e6c58b;--bit-glow:#a7fff4}
-html{background:#073d3b}
-body{color:var(--bit-ink);background:radial-gradient(ellipse at 50% 8%,#217c77 0%,#0b5955 42%,#063d3b 100%);background-attachment:fixed}
-.site-header{color:#f8f1e6;text-shadow:0 1px 10px #a3fff78a}
-.site-header h1{color:#fdf6e9;text-shadow:0 2px 8px #001f1e66}
-.site-header>div>div{color:#f5f0e5}
-.heart-menu-welcome{color:#fff8ed}
+html{background:#9be7d0}
+body{color:var(--bit-ink);background:radial-gradient(ellipse at 50% 8%,#dcfff2 0%,#a9f1db 42%,#74d6bd 100%);background-attachment:fixed}
+.site-header{color:#073c3a;text-shadow:none}
+.site-header h1{color:#073c3a;text-shadow:none}
+.site-header>div>div{color:#164f47}
+.heart-menu-welcome{color:#073c3a}
 .box,.account-panel,#bit-premium,.bit-how,#bit-card-collection,.bit-card-activity,.bit-security-panel,.bit-sent-deck,#bit-memories #bit-memory-form,.heart-menu-panel,#bit-notification-panel{
  background:radial-gradient(ellipse at 50% 0%,#ffffff 0%,#fffaf1 28%,#f8f0e4 70%,#e9e1d3 100%);
  color:#083f3c;border:1.5px solid #d5b67e;border-radius:26px;
