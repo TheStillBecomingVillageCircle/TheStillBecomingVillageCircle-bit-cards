@@ -17,6 +17,8 @@ if(proposals){proposals.setAttribute('aria-live','polite');}
 document.querySelector('#bit-notification-toggle')?.removeAttribute('hidden');
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
+const menuNotifications=$('bit-menu-notifications'),menuCount=$('bit-menu-notification-count');
+menuNotifications?.addEventListener('click',()=>{toggle.click();const menu=$('heart-menu');if(menu)menu.hidden=true;$('heart-menu-toggle')?.setAttribute('aria-expanded','false');});
 let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
 const seenKey=()=> 'bit-notifications-read:'+userId;
 const read=()=>{try{return new Set(JSON.parse(localStorage.getItem(seenKey())||'[]'))}catch{return new Set()}};
@@ -25,7 +27,7 @@ function openPage(page){const tab=document.querySelector('[data-bit-tab="'+page+
 function render(){
 const seen=read(),unread=items.filter(i=>!seen.has(i.key)).length;
 if(initializedFor!==userId){initializedFor=userId;previousUnread=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));}else{const current=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));if([...current].some(key=>!previousUnread.has(key))){toggle.classList.remove('bit-spark-arrival');void toggle.offsetWidth;toggle.classList.add('bit-spark-arrival');}previousUnread=current;}
-badge.textContent=String(unread);badge.hidden=!unread;toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
+badge.textContent=String(unread);badge.hidden=!unread;if(menuCount)menuCount.textContent=unread?'('+unread+')':'';toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
 host.replaceChildren();
 if(!items.length){host.textContent='No new activity yet.';return}
 for(const item of items){const row=document.createElement('div');row.className='bit-notification-item';if(!seen.has(item.key))row.classList.add('unread');const title=document.createElement('p');title.textContent=item.message;row.append(title);
