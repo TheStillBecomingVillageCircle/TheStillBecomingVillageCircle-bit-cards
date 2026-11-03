@@ -247,3 +247,9 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 @keyframes bit-paddle-right{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}55%{transform:translateX(-2px)}}
 @keyframes bit-electric-flash{0%,22%,65%,100%{opacity:0;transform:scale(.65)}30%,42%,54%{opacity:1;transform:scale(1.15)}}
 @media(prefers-reduced-motion:reduce){#bit-notification-toggle.bit-spark-arrival .bit-paddle,#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{animation:none!important}#bit-notification-toggle.bit-spark-arrival .bit-electric-spark{opacity:1}}
+
+/* Header controls: reserve separate space for the greeting on all screen sizes. */
+.site-header{position:relative;min-height:146px}
+.site-header .bit-notification-wrap{position:absolute;right:82px;top:12px;z-index:25}
+.site-header .heart-menu-welcome,.site-header .heart-menu-welcome:not([hidden]){position:absolute;right:18px;top:84px;max-width:calc(100% - 36px);white-space:nowrap;overflow:visible;text-overflow:clip;text-align:right;z-index:2}
+@media(max-width:480px){.site-header .bit-notification-wrap{right:77px;top:12px}.site-header .heart-menu-welcome{right:18px;top:84px;max-width:calc(100% - 36px);font-size:23px}}
