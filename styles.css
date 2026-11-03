@@ -201,3 +201,24 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 #bit-memories .bit-journal-entry p{margin:0;line-height:1.55;overflow-wrap:anywhere}
 #bit-memories .bit-journal-entry p:nth-of-type(1){order:-1;font-size:.84rem;letter-spacing:.04em;color:#547c73}
 #bit-memories .bit-journal-entry button{align-self:flex-start;margin-top:10px}
+
+/* Memory journal: a keepsake book, distinct from playing cards. */
+#bit-memories .bit-journal-book{position:relative;margin:28px auto 12px;max-width:900px;padding:20px 16px 18px;border:1px solid #c7b99b;border-radius:15px 24px 24px 15px;background:linear-gradient(90deg,#e5d7be 0,#faf2e5 12px,#fffaf0 20px,#fffaf0 calc(100% - 12px),#e9dcc6 100%);box-shadow:5px 7px 0 #d7c8ad,9px 12px 25px #245b5240}
+#bit-memories .bit-journal-top{text-align:center;border-bottom:1px solid #dbcdb4;padding:10px 8px 16px}
+#bit-memories .bit-journal-kicker{font-size:.65rem;letter-spacing:.23em;color:#937c60;font-weight:600}
+#bit-memories .bit-journal-top h3{margin:8px 0;font-family:'Bodoni Moda',Georgia,serif;font-weight:500;font-size:clamp(1.6rem,5vw,2.5rem);color:#185b55}
+#bit-memories .bit-journal-sparkle{color:#b89b58;font-size:1.2rem}
+#bit-memories .bit-journal-pages{min-height:340px;padding:20px 12px 12px;background:radial-gradient(circle at 85% 14%,#f5dfac77,transparent 35%),repeating-linear-gradient(0deg,transparent 0,transparent 30px,#a9c9c133 31px,#a9c9c133 32px);border-radius:6px}
+#bit-memories #bit-memory-list{margin:0;padding:0;border:0}
+#bit-memories .bit-journal-entry{padding:18px 12px 28px;margin:0;border:0;background:transparent;min-height:250px}
+#bit-memories #bit-memory-list>.bit-journal-entry::before{display:none}
+#bit-memories .bit-journal-entry h4{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(1.35rem,4vw,1.9rem);font-weight:600}
+#bit-memories .bit-journal-entry p:nth-of-type(1){font-size:.85rem;color:#8b7457;letter-spacing:.08em}
+#bit-memories .bit-journal-entry p:nth-of-type(2){line-height:1.8;font-size:1rem}
+#bit-memories .bit-journal-navigation{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 2px 4px;border-top:1px solid #dbcdb4}
+#bit-memories .bit-journal-navigation button{border:1px solid #9fc7b9;border-radius:20px;background:#e3f4eb;color:#1b655d;padding:10px 13px;font:inherit;font-size:.85rem}
+#bit-memories .bit-journal-navigation button:disabled{opacity:.35}
+#bit-memories .bit-journal-navigation span{font-size:.8rem;color:#795f48;text-align:center}
+#bit-memories .bit-journal-pages [hidden]{display:none!important}
+#bit-memories .bit-journal-shared-section>h3{font-size:1rem;color:#94764d;margin:0 12px}
+@media(min-width:760px){#bit-memories .bit-journal-book{padding:28px 34px}#bit-memories .bit-journal-pages{min-height:440px;padding:30px 32px;background-image:linear-gradient(90deg,transparent 49.7%,#b9ac9444 50%,transparent 50.3%),radial-gradient(circle at 85% 14%,#f5dfac77,transparent 35%),repeating-linear-gradient(0deg,transparent 0,transparent 30px,#a9c9c133 31px,#a9c9c133 32px)}}
