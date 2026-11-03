@@ -25,4 +25,15 @@ send.onclick=async()=>{const name=proposal.value.trim();if(!name){status.textCon
 wrap.append(h,currentName,proposalLabel,proposal,send);
 for(const p of r.proposals.filter(x=>x.status==='pending')){const line=el('div');line.className='bit-name-request';line.append(el('span',(p.proposer_id===r.u.id?'Awaiting approval: ':'Approval requested: ')+p.proposed_name));if(p.recipient_id===r.u.id){for(const action of ['approved','declined']){const b=el('button',action==='approved'?'Approve':'Decline');b.type='button';b.onclick=async()=>{b.disabled=true;const result=await db().from('connection_name_proposals').update({status:action,decided_at:new Date().toISOString()}).eq('id',p.id).eq('status','pending');status.textContent=result.error?result.error.message:action==='approved'?'Shared name approved.':'Name declined.';if(!result.error){window.bitRefreshConnections?.();await window.bitEditConnectionName(other,base)}};line.append(b)}}wrap.append(line)}
 wrap.append(status);document.getElementById('bit-connections').append(wrap);wrap.scrollIntoView({block:'nearest',behavior:'smooth'})};
+
+// Show incoming shared-name proposals directly on Account, without opening Edit Name.
+window.bitRenderSharedNameRequests=async()=>{const host=document.getElementById('bit-shared-name-requests');if(!host)return;host.replaceChildren();const user=await current();if(!user)return;
+const {data,error}=await db().from('connection_name_proposals').select('id,proposer_id,proposed_name,created_at').eq('recipient_id',user.id).eq('status','pending').order('created_at',{ascending:false});
+if(error){host.textContent='Unable to check shared-name requests: '+error.message;return}
+if(!data?.length)return;
+const heading=el('h4','Shared Name Requests');host.append(heading);
+for(const request of data){const item=el('div');item.className='bit-name-request';const message=el('p','Your connection suggested: '+request.proposed_name);item.append(message);
+for(const action of ['approved','declined']){const button=el('button',action==='approved'?'Approve Name':'Decline');button.type='button';button.addEventListener('click',async()=>{button.disabled=true;const {error:saveError}=await db().from('connection_name_proposals').update({status:action,decided_at:new Date().toISOString()}).eq('id',request.id).eq('recipient_id',user.id).eq('status','pending');if(saveError){button.disabled=false;message.textContent='Unable to respond: '+saveError.message;return}await window.bitRefreshConnections?.()});item.append(button)}
+host.append(item)}
+};
 })();
