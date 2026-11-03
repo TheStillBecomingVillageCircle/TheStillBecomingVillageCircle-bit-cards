@@ -9,6 +9,7 @@ if(connectionHeading&&!document.querySelector('#bit-connections .bit-connection-
 const connectionsList=document.getElementById('bit-connection-requests');
 const addConnectionButton=document.getElementById('bit-add-connection');
 if(connectionsList&&addConnectionButton)connectionsList.after(addConnectionButton);
+if(connectionsList&&!document.getElementById('bit-replay-ceremony')){const replay=document.createElement('button');replay.id='bit-replay-ceremony';replay.type='button';replay.textContent='Replay Our Connection Spark ♥';replay.className='bit-replay-ceremony';replay.addEventListener('click',()=>window.bitReplayConnectionCeremony?.());connectionsList.after(replay);replay.hidden=true;const check=()=>{replay.hidden=!connectionsList.textContent.includes('Connected with')};new MutationObserver(check).observe(connectionsList,{childList:true,subtree:true});check();}
 const requestHeading=connectionsList?.previousElementSibling;
 if(requestHeading?.textContent?.trim()==='Connection Requests')requestHeading.textContent='Your Connections & Requests';
 const proposals=document.getElementById('bit-shared-name-requests');
