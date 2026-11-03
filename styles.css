@@ -116,7 +116,7 @@ body:not(.bit-receiving){padding-bottom:100px}
 body.bit-receiving .bit-bottom-nav{display:none}
 main>[data-bit-screen]{display:none!important}
 body[data-bit-view="home"] main>[data-bit-screen="home"],body[data-bit-view="cards"] main>[data-bit-screen="cards"],body[data-bit-view="calendar"] main>[data-bit-screen="calendar"],body[data-bit-view="memories"] main>[data-bit-screen="memories"],body[data-bit-view="account"] main>[data-bit-screen="account"],body[data-bit-view="premium"] main>[data-bit-screen="premium"]{display:block!important}
-body[data-bit-view="cards"] main>.cols:not([hidden]){display:grid!important}
+body[data-bit-view="cards"][data-bit-card-filter="create"] main>.cols:not([hidden]){display:grid!important}
 main>.cols[hidden],#bit-card-collection[hidden],#bit-create-from-cards[hidden]{display:none!important}
 #bit-card-tabs{display:flex;gap:9px;margin:0 0 18px}
 #bit-card-tabs button{flex:1;background:#fffaf3;border:1px solid #cdb59a;border-radius:14px;color:#594238;padding:11px 4px}
@@ -185,3 +185,6 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 #bit-card-collection .received-card h2{font-size:clamp(25px,6vw,36px)}
 #bit-card-collection .received-card p{font-size:clamp(17px,4.4vw,23px);line-height:1.4}
 @media(max-width:440px){.received-card{min-height:390px;padding:24px 20px}#bit-card-collection{padding:15px}.bit-card-deck{padding:12px 6px 20px}}
+
+/* Only the Create tab displays the card editor. */
+body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-bit-view="cards"][data-bit-card-filter="treasured"] main>.cols{display:none!important}
