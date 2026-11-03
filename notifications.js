@@ -75,13 +75,7 @@ window.bitRefreshNotifications=refresh;refresh();
 'use strict';
 const $=id=>document.getElementById(id);
 
-const toggle=$('bit-notification-toggle');
-if(toggle){
- const svg=toggle.querySelector('svg');
- if(svg){
- svg.innerHTML='<defs><linearGradient id="bitFineLeft" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b9eee0"/><stop offset="1" stop-color="#48b6a8"/></linearGradient><linearGradient id="bitFineRight" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8e9d2"/><stop offset="1" stop-color="#c99f75"/></linearGradient></defs><g class="bit-paddle bit-paddle-left"><path d="M24 17C17 5 5 11 5 23c0 9 11 16 19 21Z" fill="url(#bitFineLeft)" stroke="#32796f" stroke-width="1.3"/><path d="M12 13 9 7" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><g class="bit-paddle bit-paddle-right"><path d="M24 17C31 5 43 11 43 23c0 9-11 16-19 21Z" fill="url(#bitFineRight)" stroke="#32796f" stroke-width="1.3"/><path d="m36 13 3-6" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><path class="bit-electric-spark" d="M24 19c-5-8-15-3-15 5 0 7 8 13 15 18 7-5 15-11 15-18 0-8-10-13-15-5Z" fill="#e8c36e" stroke="#fff9d7" stroke-width="1.5"/>';
- }
-}
+const notice=$('bit-notification-toggle');if(notice){const svg=notice.querySelector('svg');if(svg){svg.setAttribute('viewBox','0 0 48 48');svg.innerHTML='<path d="M24 40C17 34 7 27 7 17.5 7 9 17 6 24 14c7-8 17-5 17 3.5C41 27 31 34 24 40Z" fill="#70cdbb" stroke="#276f66" stroke-width="1.5"/><path d="m24 17-4 9h6l-2 7 7-11h-6l2-5" fill="none" stroke="#f7e5ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';}}
 /* Mirror the white text box into the lined journal, without changing saved entries. */
 const story=$('bit-memory-story'),title=$('bit-memory-title'),pages=$('bit-journal-pages');
 if(story&&title&&pages){
