@@ -98,7 +98,7 @@ body.bit-receiving header,body.bit-receiving main{display:none!important}
 #bit-received{min-height:100dvh;display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#43bcb1,#65cbb9,#2faaa5)}
 .received-wrap{width:min(100%,550px);text-align:center}
 .received-wrap>p{letter-spacing:.1em;font-weight:600}
-.received-card{border-radius:26px;box-shadow:0 20px 50px #164f4d40;padding:38px 28px;color:#125d61}
+.received-card{width:min(100%,330px);min-height:440px;aspect-ratio:5/7;margin-inline:auto;border-radius:18px;border:2px solid rgba(255,255,255,.75);box-shadow:0 12px 0 -6px rgba(22,79,77,.25),0 20px 42px #164f4d30;padding:30px 24px;color:#125d61;display:flex;flex-direction:column;justify-content:center;position:relative;overflow-wrap:anywhere}
 .received-card.aquamarine{background:linear-gradient(135deg,#baf4ed,#4ac6bf 45%,#a9e8d6);color:#125d61}
 .received-card.mint{background:linear-gradient(135deg,#ddfff3,#73d3b4,#f2fff9)}
 .received-card.rose{background:linear-gradient(125deg,#b67790,#ffeaf1,#d89cb1)}
@@ -174,3 +174,14 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 .bit-security-panel summary{cursor:pointer;font-weight:650;color:#175a54}
 .bit-security-panel form{margin-top:14px}
 .bit-security-panel button{background:#168d91;color:white}
+
+/* Cards are collected on the Cards page, not in Account. */
+#bit-card-account-panels{margin-top:22px}
+#bit-card-account-panels>h3{margin-top:22px}
+#bit-card-account-panels #bit-inbox article{border:1px solid #a6d5c9!important;border-radius:14px;padding:16px!important;margin:12px 0;background:#f6fffa}
+#bit-card-collection .bit-card-deck{max-width:380px;margin-inline:auto}
+#bit-card-collection .received-card{max-width:330px}
+#bit-card-collection .received-card:before{content:"";position:absolute;inset:10px;border:1px solid currentColor;border-radius:12px;opacity:.28;pointer-events:none}
+#bit-card-collection .received-card h2{font-size:clamp(25px,6vw,36px)}
+#bit-card-collection .received-card p{font-size:clamp(17px,4.4vw,23px);line-height:1.4}
+@media(max-width:440px){.received-card{min-height:390px;padding:24px 20px}#bit-card-collection{padding:15px}.bit-card-deck{padding:12px 6px 20px}}
