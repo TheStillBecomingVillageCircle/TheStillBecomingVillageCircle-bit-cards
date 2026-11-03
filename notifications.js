@@ -2,13 +2,14 @@
 'use strict';
 const $=id=>document.getElementById(id),toggle=$('bit-notification-toggle'),panel=$('bit-notification-panel'),host=$('bit-notification-items'),badge=$('bit-notification-count');
 if(!toggle||!panel||!host)return;
-let userId=null,items=[],busy=false;
+let userId=null,items=[],busy=false,initializedFor=null,previousUnread=new Set();
 const seenKey=()=> 'bit-notifications-read:'+userId;
 const read=()=>{try{return new Set(JSON.parse(localStorage.getItem(seenKey())||'[]'))}catch{return new Set()}};
 function mark(key){const s=read();s.add(key);try{localStorage.setItem(seenKey(),JSON.stringify([...s].slice(-500)))}catch{}render()}
 function openPage(page){const tab=document.querySelector('[data-bit-tab="'+page+'"]');tab?.click();panel.hidden=true;toggle.setAttribute('aria-expanded','false')}
 function render(){
 const seen=read(),unread=items.filter(i=>!seen.has(i.key)).length;
+if(initializedFor!==userId){initializedFor=userId;previousUnread=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));}else{const current=new Set(items.filter(i=>!seen.has(i.key)).map(i=>i.key));if([...current].some(key=>!previousUnread.has(key))){toggle.classList.remove('bit-spark-arrival');void toggle.offsetWidth;toggle.classList.add('bit-spark-arrival');}previousUnread=current;}
 badge.textContent=String(unread);badge.hidden=!unread;toggle.setAttribute('aria-label',unread?unread+' unread notifications':'Notifications');
 host.replaceChildren();
 if(!items.length){host.textContent='No new activity yet.';return}
@@ -20,7 +21,7 @@ const dismiss=document.createElement('button');dismiss.type='button';dismiss.tex
 }
 async function refresh(){
 const db=window.bitCardsDb;if(!db||busy)return;busy=true;
-try{const {data:{user}}=await db.auth.getUser();if(!user){userId=null;toggle.hidden=true;panel.hidden=true;return}
+try{const {data:{user}}=await db.auth.getUser();if(!user){userId=null;initializedFor=null;previousUnread.clear();toggle.hidden=true;panel.hidden=true;return}
 userId=user.id;toggle.hidden=false;
 const queries=[
 db.from('connection_requests').select('id,requester_id,created_at').eq('owner_id',userId).eq('status','pending').limit(50),
