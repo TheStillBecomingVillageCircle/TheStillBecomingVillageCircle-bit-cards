@@ -1,7 +1,7 @@
 (() => {
 'use strict';
 /* Load the connection ceremony from the existing deferred notification entrypoint. */
-const elegantScript=document.createElement('script');elegantScript.src='./elegant-experience.js';document.head.append(elegantScript);
+
 const ceremonyScript=document.createElement('script');
 ceremonyScript.src='./connection-ceremony.js';
 ceremonyScript.defer=true;
@@ -68,4 +68,48 @@ window.addEventListener('bit-account-changed',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
 window.setInterval(()=>{if(!document.hidden)refresh()},45000);
 window.bitRefreshNotifications=refresh;refresh();
+})();
+
+/* Card gestures, typography-aware journal preview, and notification artwork. */
+(() => {
+'use strict';
+const $=id=>document.getElementById(id);
+
+const toggle=$('bit-notification-toggle');
+if(toggle){
+ const svg=toggle.querySelector('svg');
+ if(svg){
+ svg.innerHTML='<defs><linearGradient id="bitFineLeft" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b9eee0"/><stop offset="1" stop-color="#48b6a8"/></linearGradient><linearGradient id="bitFineRight" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8e9d2"/><stop offset="1" stop-color="#c99f75"/></linearGradient></defs><g class="bit-paddle bit-paddle-left"><path d="M24 17C17 5 5 11 5 23c0 9 11 16 19 21Z" fill="url(#bitFineLeft)" stroke="#32796f" stroke-width="1.3"/><path d="M12 13 9 7" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><g class="bit-paddle bit-paddle-right"><path d="M24 17C31 5 43 11 43 23c0 9-11 16-19 21Z" fill="url(#bitFineRight)" stroke="#32796f" stroke-width="1.3"/><path d="m36 13 3-6" fill="none" stroke="#ad845d" stroke-width="2" stroke-linecap="round"/></g><path class="bit-electric-spark" d="M24 19c-5-8-15-3-15 5 0 7 8 13 15 18 7-5 15-11 15-18 0-8-10-13-15-5Z" fill="#e8c36e" stroke="#fff9d7" stroke-width="1.5"/>';
+ }
+}
+/* Mirror the white text box into the lined journal, without changing saved entries. */
+const story=$('bit-memory-story'),title=$('bit-memory-title'),pages=$('bit-journal-pages');
+if(story&&title&&pages){
+ const preview=document.createElement('article');
+ preview.className='bit-journal-live';
+ preview.hidden=true;
+ preview.setAttribute('aria-label','Live memory writing preview');
+ const heading=document.createElement('h4');
+ const ink=document.createElement('p');
+ preview.append(heading,ink);
+ pages.prepend(preview);
+
+ function sync(){const active=Boolean(title.value||story.value);preview.hidden=!active;heading.textContent=title.value;ink.textContent=story.value;}
+ story.addEventListener('input',sync);
+ title.addEventListener('input',sync);
+ $('bit-memory-form')?.addEventListener('reset',()=>requestAnimationFrame(sync));
+ $('bit-memory-form')?.addEventListener('submit',()=>setTimeout(sync,100));
+ sync();
+}
+function wireDeck(deck){
+ if(deck.dataset.bitSwipeReady)return;deck.dataset.bitSwipeReady='true';
+ let startX=0,startY=0,down=false;
+ deck.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;startX=e.touches[0].clientX;startY=e.touches[0].clientY;down=true},{passive:true});
+ deck.addEventListener('touchend',e=>{if(!down)return;down=false;const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;if(Math.abs(dx)<45||Math.abs(dx)<Math.abs(dy)*1.25)return;const section=deck.parentElement;const controls=section?.querySelector('.bit-stack-controls');const buttons=controls?.querySelectorAll('button');const button=dx<0?buttons?.[1]:buttons?.[0];if(button&&!button.disabled){deck.classList.add(dx<0?'bit-swipe-next':'bit-swipe-prev');button.click();setTimeout(()=>deck.classList.remove('bit-swipe-next','bit-swipe-prev'),240)}},{passive:true});
+ deck.addEventListener('click',e=>{if(e.target.closest('button,a,input,textarea,select'))return;const controls=deck.parentElement?.querySelector('.bit-stack-controls');const next=controls?.querySelectorAll('button')?.[1];if(next&&!next.disabled)next.click()});
+}
+function wire(){document.querySelectorAll('.bit-card-deck').forEach(wireDeck)}
+const observer=new MutationObserver(()=>{if(!document.hidden)wire()});
+observer.observe(document.body,{childList:true,subtree:true});
+wire();
 })();
