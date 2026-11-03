@@ -1,6 +1,6 @@
 /* B.I.T. Cards — canonical stylesheet. Edit styles here, not in HTML patches. */
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(145deg,#43bcb1 0%,#65cbb9 52%,#2faaa5 100%);min-height:100vh;color:#164f4d;font-family:'Jost',sans-serif}
+body{margin:0;background:radial-gradient(ellipse at 55% 5%,#e1fff4 0%,#a3f4df 17%,#65d9c5 46%,#30b5ac 100%);min-height:100vh;color:#164f4d;font-family:'Jost',sans-serif}
 header,main{max-width:980px;margin:auto;padding:20px}
 main{padding-top:8px}
 .site-header h1{margin-top:8px;margin-bottom:18px}
@@ -9,7 +9,7 @@ h1{font-size:32px;font-weight:500;letter-spacing:-.045em;font-size:clamp(38px,6v
 main>p{margin-bottom:25px;font-size:17px;line-height:1.65;letter-spacing:.01em}
 header,main>h2,main>p{color:#103f3d}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.box{background:white;border:1px solid #9bd6cd;border-radius:18px;padding:20px;margin-bottom:18px}
+.box{background:linear-gradient(145deg,#fffefa 0%,#f3fff9 58%,#e4f8f3 100%);border:1px solid #d1e8e5;border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 12px 30px rgba(8,93,85,.10),inset 0 1px 0 #fff}
 label{display:block;margin:16px 0 6px;font-weight:bold;font-weight:500;letter-spacing:.035em}
 input,textarea,select{width:100%;padding:12px;border:1px solid #b9d7cb;border-radius:10px;font:inherit}
 textarea{min-height:120px}
@@ -242,14 +242,14 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 
 .bit-ceremony-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(9,38,36,.82);padding:18px}
 .bit-ceremony-overlay[hidden]{display:none!important}
-.bit-ceremony-card{width:min(94vw,430px);border:1px solid rgba(255,249,231,.85);border-radius:28px;padding:30px 22px;text-align:center;background:linear-gradient(155deg,#fffdf5 0%,#eaf8f0 56%,#d9efe5 100%);color:#195c54;box-shadow:0 24px 70px #061e1c88,inset 0 1px 0 #fff}
+.bit-ceremony-card{width:min(94vw,490px);max-height:92dvh;overflow-y:auto;border:2px solid #d7f0f2;border-radius:30px;padding:25px 20px 28px;text-align:center;background:radial-gradient(ellipse at 50% 17%,#fff 0%,#f4fffc 42%,#d9f8ef 100%);color:#115a56;box-shadow:0 24px 70px #061e1c88,inset 0 0 0 3px rgba(255,255,255,.88),inset 0 0 28px rgba(134,244,227,.4)}
 .bit-ceremony-card h2{font-size:1.65rem;margin:10px 0}
 .bit-ceremony-card p{margin:8px 0 18px}
-.bit-ceremony-art{width:min(80vw,340px);height:auto;overflow:visible}
+.bit-ceremony-art{width:min(85vw,420px);max-height:35dvh;height:auto;overflow:visible}
 .bit-ceremony-left{animation:bit-ceremony-left 2.4s ease-in-out both;transform-origin:50% 50%}
 .bit-ceremony-right{animation:bit-ceremony-right 2.4s ease-in-out both;transform-origin:50% 50%}
 .bit-ceremony-heart{animation:bit-ceremony-heart 2.4s ease-in-out both;transform-origin:50% 50%}
-.bit-ceremony-card button{padding:12px 24px;border:0;border-radius:999px;background:#216f65;color:white;font-weight:700}
+.bit-ceremony-card button{padding:13px 30px;border:1px solid #d5f5f0;border-radius:999px;background:linear-gradient(125deg,#0b5f5b,#168d82 45%,#07514e);color:white;font-weight:700;box-shadow:0 7px 18px #13786b55,inset 0 1px 0 #d8fff5}
 @keyframes bit-ceremony-left{0%,15%{transform:translateX(-22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(-5px)}}
 @keyframes bit-ceremony-right{0%,15%{transform:translateX(22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(5px)}}
 @keyframes bit-ceremony-heart{0%,35%{opacity:0;transform:scale(.4)}45%,75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
