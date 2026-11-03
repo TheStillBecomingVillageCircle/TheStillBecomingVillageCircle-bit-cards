@@ -15,7 +15,7 @@ input,textarea,select{width:100%;padding:12px;border:1px solid #b9d7cb;border-ra
 textarea{min-height:120px}
 button{border:1px solid #91c7b6;border-radius:10px;background:white;padding:11px;margin:4px;cursor:pointer;font:inherit}
 button.active,.primary{background:#168d91;color:white}
-.bit-cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin:0 0 28px;padding:14px 23px 14px 27px;border:1px solid rgba(18,91,84,.2);border-radius:999px;background:linear-gradient(125deg,#fffaf2,#fff0e5);color:#175951;font-family:"Bodoni Moda",serif;font-size:18px;font-weight:600;letter-spacing:.1px;box-shadow:0 7px 22px rgba(11,76,69,.13);transition:transform .18s ease,box-shadow .18s ease;font-style:italic;font-weight:500;letter-spacing:-.02em;font-family:"Euphoria Script",cursive!important;font-size:clamp(31px,5vw,41px)!important;font-style:normal!important;font-weight:400!important;letter-spacing:0!important;background:#f7f0e5!important;border:1.5px solid #8a6855!important;color:#594238!important;box-shadow:0 5px 15px rgba(62,56,56,.12)!important;padding:11px 22px!important}
+.bit-cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin:0 0 28px;padding:14px 23px 14px 27px;border:1px solid rgba(18,91,84,.2);border-radius:999px;background:linear-gradient(125deg,#fff,#e7fff7);color:#175951;font-family:"Bodoni Moda",serif;font-size:18px;font-weight:600;letter-spacing:.1px;box-shadow:0 7px 22px rgba(11,76,69,.13);transition:transform .18s ease,box-shadow .18s ease;font-style:italic;font-weight:500;letter-spacing:-.02em;font-family:"Euphoria Script",cursive!important;font-size:clamp(31px,5vw,41px)!important;font-style:normal!important;font-weight:400!important;letter-spacing:0!important;background:linear-gradient(145deg,#ffffff,#d9fff3)!important;border:1.5px solid #a3c5cb!important;color:#145a59!important;box-shadow:0 5px 15px rgba(62,56,56,.12)!important;padding:11px 22px!important}
 .bit-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(11,76,69,.19)}
 .bit-cta:focus-visible{outline:3px solid #125d61;outline-offset:3px}
 .bit-cta-icon{flex:none;filter:drop-shadow(0 2px 2px rgba(26,95,80,.08));width:43px;height:40px}
@@ -31,8 +31,8 @@ button.active,.primary{background:#168d91;color:white}
 .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
 .day{height:44px;margin:0;padding:4px;font-size:13px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
 .has{background:#bcead8}
-.calendar-heart{display:block;width:23px;height:22px;fill:#f7f0e5;stroke:#8a6855;stroke-width:1.6;stroke-linejoin:round;overflow:visible}
-.day.has .calendar-heart{fill:#594238;stroke:#594238}
+.calendar-heart{display:block;width:23px;height:22px;fill:#e7fff8;stroke:#7da4ac;stroke-width:1.6;stroke-linejoin:round;overflow:visible}
+.day.has .calendar-heart{fill:#168e86;stroke:#168e86}
 .chosen{outline:2px solid #268d73}
 .muted{font-size:13px;color:#62796e}
 #history article{border-top:1px solid #ddd;padding:10px 0}
@@ -60,7 +60,7 @@ header>div>div{font-size:14px;letter-spacing:.16em;text-transform:uppercase;font
 .bit-how h2{font-size:25px;margin:0 0 10px}
 .bit-how p{margin:9px 0;line-height:1.55}
 .bit-how strong{color:#145c56}
-.account-panel{max-width:650px;margin:12px auto 28px;background:linear-gradient(135deg,#fffaf4,#f8eee9);border:1px solid #e6c5b9;border-radius:23px;padding:24px;box-shadow:0 9px 28px #155d5520}
+.account-panel{max-width:650px;margin:12px auto 28px;background:radial-gradient(ellipse at 20% 0%,#fff 0%,#f5fffb 55%,#e2f7f3 100%);border:1px solid #b8d7db;border-radius:23px;padding:24px;box-shadow:0 9px 28px #155d5520}
 .account-panel h2{font-family:'Bodoni Moda',serif;margin:0 0 9px}
 .account-panel p{margin:8px 0 14px}
 .account-panel label{margin-top:12px}
@@ -253,13 +253,9 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 @keyframes bit-ceremony-left{0%,15%{transform:translateX(-22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(-5px)}}
 @keyframes bit-ceremony-right{0%,15%{transform:translateX(22px)}45%,85%{transform:translateX(0)}100%{transform:translateX(5px)}}
 @keyframes bit-ceremony-heart{0%,35%{opacity:0;transform:scale(.4)}45%,75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){@keyframes bit-ceremony-left{0%{transform:translateX(-52px) rotate(-8deg)}58%,100%{transform:translateX(0) rotate(0)}}
-@keyframes bit-ceremony-right{0%{transform:translateX(52px) rotate(8deg)}58%,100%{transform:translateX(0) rotate(0)}}
 @keyframes bit-ceremony-flash{0%,42%{opacity:0;transform:scale(.45)}60%{opacity:1;transform:scale(1.2)}75%,100%{opacity:1;transform:scale(1)}}
-.bit-ceremony-left{animation:bit-ceremony-left 1.65s cubic-bezier(.2,.8,.2,1) both;transform-box:fill-box;transform-origin:center}
-.bit-ceremony-right{animation:bit-ceremony-right 1.65s cubic-bezier(.2,.8,.2,1) both;transform-box:fill-box;transform-origin:center}
 .bit-ceremony-spark,.bit-ceremony-glow{animation:bit-ceremony-flash 1.9s ease-out both;transform-box:fill-box;transform-origin:center}
-@media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-spark,.bit-ceremony-glow{animation:none!important}}}
+@media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-spark,.bit-ceremony-glow{animation:none!important}}
 
 
 /* Accessible two-choice memory visibility control. */
@@ -277,7 +273,7 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 .bit-filled-heart{color:#36bfa9;text-shadow:0 1px 1px #26776b55;font-family:Georgia,serif;font-size:.8em}
 #bit-gifted-activity>h3{font-family:'Caveat','Euphoria Script',cursive!important;font-size:clamp(32px,6.5vw,44px)!important;font-weight:500!important;letter-spacing:0!important}
 
-.bit-replay-ceremony{display:inline-flex;align-items:center;justify-content:center;margin:12px 0 16px;padding:12px 16px;border:1px solid #69bba9;border-radius:999px;background:linear-gradient(110deg,#d5f5e9,#f8e6c8);color:#175c54;font-weight:600}
+.bit-replay-ceremony{display:inline-flex;align-items:center;justify-content:center;margin:12px 0 16px;padding:12px 16px;border:1px solid #69bba9;border-radius:999px;background:linear-gradient(110deg,#d5fff0,#eef8ff);color:#175c54;font-weight:600}
 .bit-replay-ceremony[hidden]{display:none!important}
 
 #heart-menu .bit-menu-notifications{display:block;width:100%;padding:12px 16px;text-align:left;background:transparent;color:inherit;border:0;border-radius:10px;font:inherit;cursor:pointer}
@@ -286,5 +282,17 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 #bit-notification-panel:not([hidden]){position:fixed!important;z-index:9999!important;top:clamp(75px,12vh,125px)!important;right:16px!important;left:auto!important;width:min(420px,calc(100vw - 32px))!important;max-height:72vh!important;overflow-y:auto!important}
 
 /* Unread notifications belong to the single heart navigation control. */
-.bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #f7f0e5;box-shadow:0 2px 5px #164e4655;pointer-events:none}
+.bit-heart-menu-badge{position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#146d65;color:#fff;font:700 12px/1 Jost,system-ui,sans-serif;border:2px solid #e8fffa;box-shadow:0 2px 5px #164e4655;pointer-events:none}
 .bit-heart-menu-badge[hidden]{display:none!important}
+
+/* B.I.T. Cards luminous design system: mint + aquamarine + platinum + pearl. */
+:root{--bit-mint:#baf8e3;--bit-aquamarine:#31bdb1;--bit-platinum:#c2d3d9;--bit-pearl:#fafffd;--bit-deep:#105b58;--bit-luminous-border:linear-gradient(135deg,#fff 0%,#a6c6cc 36%,#faffff 58%,#93bdc1 100%)}
+body{background:radial-gradient(ellipse at 50% -12%,#f5fffc 0%,#b5f9e7 23%,#72dfcd 55%,#36b7ae 100%);background-attachment:fixed}
+.box,.account-panel,#bit-premium,.bit-how{background:radial-gradient(ellipse at 25% 0%,#fff 0%,#f7fffc 48%,#e4f8f3 100%);border:1px solid var(--bit-platinum);box-shadow:0 16px 36px rgba(8,76,73,.13),inset 0 1px 0 #fff,inset 0 0 22px rgba(255,255,255,.75)}
+.box,.account-panel{border-radius:25px}
+button:not(.heart-menu-toggle):not(.bit-nav-button):not(.bit-tab):not(.day){border-color:#a5c9cc;background:linear-gradient(145deg,#fff 0%,#effff9 60%,#d8f3ed 100%);color:var(--bit-deep);box-shadow:inset 0 1px 0 #fff,0 3px 9px rgba(11,85,78,.09)}
+button.primary,button.active,.bit-ceremony-card button{background:linear-gradient(125deg,#0a6662,#2ac1b2 52%,#0b6764)!important;color:#fff!important;border:1px solid #a6d4d7!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 6px 17px rgba(11,90,82,.23)!important}
+input,textarea,select{background:#fffefa;border-color:#b4d2d3;box-shadow:inset 0 1px 4px rgba(11,81,74,.045)}
+.bit-ceremony-card{border:2px solid #c7e1e6;background:radial-gradient(ellipse at 50% 15%,#fff 0%,#fbfffe 40%,#dcf8ef 100%);box-shadow:0 24px 70px #061e1c88,inset 0 0 0 3px #fff,inset 0 0 32px #b5ffed88}
+.bit-ceremony-card h2{font-family:'Bodoni Moda',serif;font-weight:500;letter-spacing:-.035em}
+.bit-ceremony-art{filter:drop-shadow(0 8px 18px rgba(15,113,106,.13))}
