@@ -176,9 +176,9 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 .bit-security-panel button{background:#168d91;color:white}
 
 /* Cards are collected on the Cards page, not in Account. */
-#bit-card-account-panels{margin-top:22px}
-#bit-card-account-panels>h3{margin-top:22px}
-#bit-card-account-panels #bit-inbox article{border:1px solid #a6d5c9!important;border-radius:14px;padding:16px!important;margin:12px 0;background:#f6fffa}
+.bit-card-activity{margin-top:22px;padding:20px;border:1px solid #a6d5c9;border-radius:18px;background:#fffaf3}
+.bit-card-activity>h3{margin-top:8px}
+#bit-treasured-inbox #bit-inbox article{border:1px solid #a6d5c9!important;border-radius:14px;padding:16px!important;margin:12px 0;background:#f6fffa}
 #bit-card-collection .bit-card-deck{max-width:380px;margin-inline:auto}
 #bit-card-collection .received-card{max-width:330px}
 #bit-card-collection .received-card:before{content:"";position:absolute;inset:10px;border:1px solid currentColor;border-radius:12px;opacity:.28;pointer-events:none}
@@ -188,3 +188,6 @@ body.bit-signed-in #bit-account-guest-form{display:none!important}
 
 /* Only the Create tab displays the card editor. */
 body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-bit-view="cards"][data-bit-card-filter="treasured"] main>.cols{display:none!important}
+
+/* Collection panels are exclusive to their selected tabs. */
+#bit-gifted-activity[hidden],#bit-treasured-inbox[hidden],#bit-sent-archive[hidden]{display:none!important}
