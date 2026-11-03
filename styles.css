@@ -305,3 +305,15 @@ body[data-bit-view="cards"][data-bit-card-filter="gifted"] main>.cols,body[data-
 @keyframes bit-ceremony-heart{0%,35%{opacity:0;transform:scale(.4)}45%,75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.bit-ceremony-left,.bit-ceremony-right,.bit-ceremony-heart{animation:none!important}}
 
+
+/* Accessible two-choice memory visibility control. */
+.bit-memory-visibility{border:0;padding:0;margin:18px 0 10px;min-width:0}
+.bit-memory-visibility legend{font-weight:700;color:#205f57;margin-bottom:9px}
+.bit-memory-visibility-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bit-memory-visibility-options label{display:flex;align-items:center;gap:8px;padding:12px 10px!important;border:1px solid #8fc6b8;border-radius:14px;background:#fffdf7;font-size:clamp(13px,3.5vw,16px)!important;cursor:pointer}
+.bit-memory-visibility-options input{width:18px!important;height:18px!important;min-height:18px!important;accent-color:#158e85;flex:none}
+.bit-memory-visibility-options label:has(input:checked){background:#d7f4e9;border-color:#158e85;box-shadow:0 0 0 1px #158e85}
+@media(max-width:350px){.bit-memory-visibility-options{grid-template-columns:1fr}}
+/* Elegant acknowledgement headings and filled decorative hearts. */
+#bit-cards h3,#bit-cards .bit-acknowledgments h3{letter-spacing:.01em}
+#bit-cards .bit-acknowledgments h3{font-family:'Caveat','Euphoria Script',cursive!important;font-size:clamp(30px,6vw,42px)!important;font-weight:500!important}
