@@ -29,7 +29,14 @@ async function check(){
  const fresh=[...accepted].filter(id=>!known.has(id));
  if(fresh.length){for(const id of fresh)known.add(id);save(known);show()}
 }
-window.addEventListener('bit-connection-accepted',()=>{show();setTimeout(check,500)});
+window.addEventListener('bit-connection-accepted',event=>{
+ const id=String(event.detail?.connectionId||'');
+ if(!id||!currentId)return;
+ const celebrated=ids();
+ if(celebrated.has(id))return;
+ celebrated.add(id);known.add(id);save(celebrated);
+ show();
+});
 window.addEventListener('bit-account-changed',()=>{check().catch(()=>{})});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)check().catch(()=>{})});
 setInterval(()=>{if(!document.hidden)check().catch(()=>{})},20000);
