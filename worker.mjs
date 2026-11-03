@@ -34,7 +34,7 @@ export default {
         'Content-Type': file[1],
         'Cache-Control': 'no-cache',
         'X-Content-Type-Options': 'nosniff',
-        'X-BIT-Release': 'aquamarine-platinum-20261103',
+        'X-BIT-Release': 'deep-aqua-charge-20261103',
       },
     });
   },

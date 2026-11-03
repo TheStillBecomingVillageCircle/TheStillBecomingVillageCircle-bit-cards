@@ -47,23 +47,25 @@
       points.push(guide[guide.length-1]);
       return points;
     }
-    function stroke(points,color,width=2,strength=1) {
+    function stroke(points,color,width=2,strength=1,core='#fffef7') {
       if(points.length<2)return;
       ctx.beginPath();ctx.moveTo(...points[0]);
       for(const p of points.slice(1))ctx.lineTo(...p);
       ctx.lineJoin='miter';ctx.lineCap='butt';
       ctx.globalAlpha=strength*.4;ctx.strokeStyle=color;ctx.lineWidth=width*3.6;ctx.shadowColor=color;ctx.shadowBlur=19;ctx.stroke();
-      ctx.globalAlpha=strength;ctx.strokeStyle='#fffef7';ctx.lineWidth=width;ctx.shadowBlur=5;ctx.stroke();
+      ctx.globalAlpha=strength;ctx.strokeStyle=core;ctx.lineWidth=width;ctx.shadowBlur=5;ctx.stroke();
     }
     function heartSide(guide,color,strength) {
       const points=bolt(guide.map(([x,y],i)=>i===0||i===guide.length-1?[x,y]:[x+jitter(7),y+jitter(7)]),20);
-      stroke(points,color,2.3,strength);
+      ctx.save();ctx.globalCompositeOperation='source-over';
+      stroke(points,color,3.4,strength,'#006650');
       for(let i=5;i<points.length-5;i+=9){
         const p=points[i],angle=Math.atan2(p[1]-265,p[0]-600)+jitter(.5),length=25+Math.random()*58;
         const tip=[p[0]+Math.cos(angle)*length,p[1]+Math.sin(angle)*length];
-        const branch=bolt([p,tip],12);stroke(branch,color,.8,strength*.65);
-        if(i%2){const q=branch[4];stroke(bolt([q,[q[0]+jitter(27),q[1]+jitter(27)]],7),color,.5,strength*.4);}
+        const branch=bolt([p,tip],12);stroke(branch,color,1.15,strength*.8,'#087f68');
+        if(i%2){const q=branch[4];stroke(bolt([q,[q[0]+jitter(27),q[1]+jitter(27)]],7),color,.7,strength*.65,'#168e77');}
       }
+      ctx.restore();
     }
     function paint(now) {
       if(stopped)return;
@@ -83,7 +85,7 @@
       glow.addColorStop(1,'rgba(140,255,230,0)');
       ctx.fillStyle=glow;ctx.fillRect(470,185,260,260);
       stroke(bolt([[561,304],[600,315],[640,303]],13),'#e9fff0',3.7,strength);
-      if(chargeAge>90||reduced){heartSide(left,'#4dffe1',strength);heartSide(right,'#e3eff2',strength);}
+      if(chargeAge>90||reduced){heartSide(left,'#20af90',strength);heartSide(right,'#159c86',strength);}
       for(let i=0;i<9;i++){
         const angle=i/9*Math.PI*2+jitter(.2),length=42+Math.random()*(55+burst*60);
         const tip=[600+Math.cos(angle)*length,315+Math.sin(angle)*length];
