@@ -1,0 +1,15 @@
+{
+  "name": "thestillbecomingvillagecircle-bit-cards",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-03",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "rules": [
+    { "type": "Text", "globs": ["**/*.html", "**/*.css", "**/connection-ceremony.js"], "fallthrough": true },
+    { "type": "Data", "globs": ["**/*.jpeg"], "fallthrough": true }
+  ],
+  "observability": { "enabled": true }
+}
