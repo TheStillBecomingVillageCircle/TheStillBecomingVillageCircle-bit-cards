@@ -8,6 +8,10 @@
   const next = document.getElementById('bit-journal-next');
   const count = document.getElementById('bit-journal-count');
   if (!book || !pages || !personal || !prev || !next || !count) return;
+  const journalTitle=document.createElement('h3');
+  journalTitle.textContent='Our Little Moments · Digital Journal';
+  journalTitle.className='bit-journal-title';
+  book.prepend(journalTitle);
   let index = 0;
   let entries = [];
   let scheduled = false;
